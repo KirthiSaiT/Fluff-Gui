@@ -1,6 +1,6 @@
 {
     "bucket": {
-        "timestamp": "2026-02-16T11:56:40.412675",
+        "timestamp": "2026-02-16T12:26:14.198643",
         "domain": "rmkcet.ac.in",
         "dns": [
             "fe80"
@@ -19,5 +19,5 @@
     },
     "target": "rmkcet.ac.in",
     "scan_type": "deep",
-    "timestamp": "2026-02-16T06:26:40.412675+00:00"
+    "timestamp": "2026-02-16T06:56:14.198643+00:00"
 }

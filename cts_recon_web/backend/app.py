@@ -8,6 +8,7 @@ import threading
 from datetime import datetime, timezone
 from collections import defaultdict
 import subprocess
+import re
 
 # Add current directory to path so modules can be imported
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
@@ -24,9 +25,58 @@ MODULES_DIR_LITE = os.path.join(BASE_DIR, 'litemodules')
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# In-memory storage for scan status (for simplicity in this version)
-# In production, use a database or Redis
+# In-memory storage for scan status
 scan_status = {}
+
+class ThreadAwareStdout:
+    def __init__(self, original_stdout):
+        # Prevent recursive wrapping
+        if isinstance(original_stdout, ThreadAwareStdout):
+            self.original_stdout = original_stdout.original_stdout
+        else:
+            self.original_stdout = original_stdout
+
+    def write(self, message):
+        # Avoid writing if interpreter is shutting down
+        # sys.is_finalizing() is available in Python 3.13+, but we use a heuristic for older versions
+        if sys is None or not hasattr(sys, 'modules'):
+            return
+
+        # 1. Capture log for UI (Safe, pure python ops)
+        try:
+            current_thread = threading.current_thread()
+            if hasattr(current_thread, 'scan_id'):
+                scan_id = current_thread.scan_id
+                if scan_id in scan_status:
+                    # Strip ANSI escape codes
+                    clean_message = re.sub(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])', '', message)
+                    
+                    # Only log if there's actual content (ignoring just newlines or empty timestamps)
+                    if clean_message.strip():
+                        timestamp = datetime.now().strftime("%H:%M:%S")
+                        scan_status[scan_id]['logs'].append(f"[{timestamp}] {clean_message.strip()}")
+        except Exception:
+            pass # Ignore logging errors to prevent crashing
+
+        # 2. Write to original stdout (Risky during shutdown)
+        try:
+            self.original_stdout.write(message)
+            # self.original_stdout.flush() # Avoid explicit flush to reduce lock contention
+        except Exception:
+            pass # Ignore write errors during shutdown
+
+    def flush(self):
+        try:
+            self.original_stdout.flush()
+        except Exception:
+            pass
+
+    def __getattr__(self, name):
+        return getattr(self.original_stdout, name)
+
+# Replace stdout globally only if NOT already replaced (though class handles recursion now)
+if not isinstance(sys.stdout, ThreadAwareStdout):
+    sys.stdout = ThreadAwareStdout(sys.stdout)
 
 def save_scan_file(domain, scan_type, scan_data):
     """Save scan data to a JSON file."""
@@ -73,7 +123,16 @@ def run_scan_async(domain, scan_type, scan_id):
     module_prefix = 'litemodules' if scan_type == 'lite' else 'modules'
 
     # 1. Update status to running
-    scan_status[scan_id] = {"status": "running", "domain": domain, "type": scan_type, "start_time": datetime.now().isoformat()}
+    scan_status[scan_id] = {
+        "status": "running", 
+        "domain": domain, 
+        "type": scan_type, 
+        "start_time": datetime.now().isoformat(),
+        "logs": []
+    }
+    
+    # Set scan_id on current thread for logging
+    threading.current_thread().scan_id = scan_id
 
     # 2. Add modules to path if not already
     if modules_dir not in sys.path:
@@ -108,6 +167,7 @@ def start_scan():
     
     # Start scan in background thread
     thread = threading.Thread(target=run_scan_async, args=(domain, scan_type, scan_id))
+    thread.daemon = True # Ensure thread dies if server stops
     thread.start()
 
     return jsonify({"message": "Scan started", "scan_id": scan_id})
@@ -143,5 +203,8 @@ def get_result_detail(filename):
     except Exception as e:
         return jsonify({"error": f"Error reading file: {e}"}), 500
 
+
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

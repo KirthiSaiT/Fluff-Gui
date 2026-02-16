@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Activity, Shield, Search, Database, FileText } from 'lucide-react'
+import { TerminalView } from './components/TerminalView'
 import { startScan, getResults, getResultDetail } from './services/api'
 import { cn } from './lib/utils'
 
@@ -11,6 +12,7 @@ function App() {
     const [selectedScan, setSelectedScan] = useState(null)
     const [loading, setLoading] = useState(false)
     const [scanStatus, setScanStatus] = useState(null)
+    const [currentScanId, setCurrentScanId] = useState(null)
 
     useEffect(() => {
         loadRecentScans()
@@ -31,9 +33,9 @@ function App() {
         setScanStatus('Starting scan...')
         try {
             const res = await startScan(domain, scanType)
-            setScanStatus(`Scan started! ID: ${res.scan_id}. Results will appear in Dashboard shortly.`)
-            // Refresh list after a delay to allow file creation (simulated)
-            setTimeout(loadRecentScans, 2000)
+            setCurrentScanId(res.scan_id)
+            setActiveTab('terminal')
+            setScanStatus(`Scan started! ID: ${res.scan_id}`)
         } catch (error) {
             console.error(error)
             setScanStatus('Error starting scan')
@@ -197,6 +199,17 @@ function App() {
                             </div>
                         )}
                     </div>
+                )}
+
+                {/* Terminal View */}
+                {activeTab === 'terminal' && currentScanId && (
+                    <TerminalView
+                        scanId={currentScanId}
+                        onComplete={(filename) => {
+                            loadRecentScans()
+                            viewResult(filename)
+                        }}
+                    />
                 )}
 
                 {/* Results View */}

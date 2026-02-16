@@ -14,6 +14,11 @@ export const getScanStatus = async (scanId) => {
     return response.data;
 };
 
+export const getScanLogs = async (scanId) => {
+    const response = await api.get(`/scan/logs/${scanId}`);
+    return response.data;
+};
+
 export const getResults = async () => {
     const response = await api.get('/results');
     return response.data;
