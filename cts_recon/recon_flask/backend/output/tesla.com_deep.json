@@ -1,0 +1,3266 @@
+{
+    "bucket": {
+        "bucket": {
+            "timestamp": "2026-02-13T09:45:23.332159",
+            "domain": "tesla.com",
+            "dns": [],
+            "whois": [],
+            "AWS_S3": [
+                {
+                    "url": "https://fortinetweb.s3.amazonaws.com/docs.fortinet.com/v2/attachments/5b5e5d52-29c8-11f0-a9d0-d2b0d2e22f7d/FortiSASE-Cloud_Deployment.pdf",
+                    "bucket": "fortinetweb",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://surveygizmoresponseuploads.s3.amazonaws.com/fileuploads/112187/5619449/14-cc47d0d395eb5596a25709f807bc6d1c_SF_Chapter_ASSP_MEMBER_ROSTER_LEADERSHIP_CHAPTER.xlsx",
+                    "bucket": "surveygizmoresponseuploads",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://filesnewbuilding.s3.amazonaws.com/wp-content/uploads/2022/09/NBI_PublicCommentCommercial2024_IECC_202209.pdf",
+                    "bucket": "filesnewbuilding",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://startenginebetadev.s3.amazonaws.com/production/startups/5d51dbd169adae5ec7d9afb2/documents/offering_details/atlisamendment.pdf",
+                    "bucket": "startenginebetadev",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://fortinetweb.s3.amazonaws.com/docs.fortinet.com/v2/attachments/d7c513d6-36da-11ee-8e6d-fa163e15d75b/FortiSASE-Cloud_Deployment.pdf",
+                    "bucket": "fortinetweb",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://njcepfiles.s3.amazonaws.com/Meeting+3-contd_non-EDC+Readout_presentations_2022-01-28.pdf",
+                    "bucket": "njcepfiles",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://netmagmedia.s3.amazonaws.com/uploads/2020/01/SBH01_2020-lo.pdf",
+                    "bucket": "netmagmedia",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://higherlogicdownload.s3.amazonaws.com/MICHBAR/b18ff56e-13d5-48db-be48-b9a4f4c7fc00/UploadedImages/pdfs/InsJul21.pdf",
+                    "bucket": "higherlogicdownload",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://fortinetweb.s3.amazonaws.com/docs.fortinet.com/v2/attachments/ee91c9a2-d2a2-11eb-97f7-00505692583a/FortiSASE_SIA-Cloud_Deployment.pdf",
+                    "bucket": "fortinetweb",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://jnswire.s3.amazonaws.com/jns-media/5b/f9/1511105/NGUYENvTESLA.pdf",
+                    "bucket": "jnswire",
+                    "read": false,
+                    "write": false
+                }
+            ],
+            "Google_Cloud": [
+                {
+                    "url": "https://patentimages.storage.googleapis.com/cf/cb/1f/3ba0c0d3273efb/US12105192.pdf",
+                    "bucket": "cf",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://patentimages.storage.googleapis.com/50/94/2f/631dc03cd732ce/US10882493.pdf",
+                    "bucket": "50",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://patentimages.storage.googleapis.com/fb/bf/46/abd7e0df8bdde5/US12243641.pdf",
+                    "bucket": "fb",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://patentimages.storage.googleapis.com/38/68/08/3b8cb3c595baf2/US11988741.pdf",
+                    "bucket": "38",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://patentimages.storage.googleapis.com/2a/b0/91/66db7a726f6fcf/US11367527.pdf",
+                    "bucket": "2a",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://patentimages.storage.googleapis.com/35/05/08/dc8c3abf970cc1/US11810459.pdf",
+                    "bucket": "35",
+                    "read": false,
+                    "write": false
+                },
+                {
+                    "url": "https://patentimages.storage.googleapis.com/c8/02/f7/10803ed7517ca2/EP2975214A1.pdf",
+                    "bucket": "c8",
+                    "read": false,
+                    "write": false
+                }
+            ],
+            "Azure": [],
+            "DigitalOcean": [],
+            "Oracle_Cloud": []
+        },
+        "target": "tesla.com",
+        "scan_type": "deep",
+        "timestamp": "2026-02-13T04:15:23.332159+00:00"
+    },
+    "domain": {
+        "domain": "tesla.com",
+        "subdomains": [
+            "CitiApiEncProdv5.tesla.com",
+            "CitiApiSslProdv5.tesla.com",
+            "a.energy.smf12.tcs.tesla.com",
+            "a.energy.smf13.tcs.tesla.com",
+            "a.energy.vast.tcs.tesla.com",
+            "accounts.tesla.com",
+            "acs2-poc.voice.tesla.com",
+            "ai-api-stg.tesla.com",
+            "ai-api-uat.tesla.com",
+            "ai-api.tesla.com",
+            "akamai-apigateway-einvoicing-stg.tesla.com",
+            "akamai-apigateway-vehicleextinfogw-prdsvc-st.tesla.com",
+            "akamai-apigateway-vehicleextinfogw-stgsvc-st.tesla.com",
+            "ams13-gpgw1.tesla.com",
+            "apac-cppm.tesla.com",
+            "apac.logs.tesla.com",
+            "apacvpn.tesla.com",
+            "apf-api.eng.vn.cloud.tesla.com",
+            "apf-api.prd.vn.cloud.tesla.com",
+            "api-kronos-dev.tesla.com",
+            "api.kronos.tesla.com",
+            "assets-ir.tesla.com",
+            "assets.extgithub.tesla.com",
+            "assets.github-ap.tesla.com",
+            "assets.github-fw.tesla.com",
+            "assets.github-it.tesla.com",
+            "assets.github.tesla.com",
+            "auth-global.tesla.com",
+            "auth-stage.tesla.com",
+            "auth.eng.usw.vn.cloud.tesla.com",
+            "auth.prd.euw1.vn.cloud.tesla.com",
+            "auth.prd.usw.vn.cloud.tesla.com",
+            "auth.tesla.com",
+            "autobidder-preprd.powerhub.energy.tesla.com",
+            "autobidder.powerhub.energy.tesla.com",
+            "autodiscover.tesla.com",
+            "avatars.extgithub.tesla.com",
+            "avatars.github-ap.tesla.com",
+            "avatars.github-fw.tesla.com",
+            "avatars.github-it.tesla.com",
+            "avatars.github.tesla.com",
+            "b.energy.ams15.tcs.tesla.com",
+            "b.energy.ams17.tcs.tesla.com",
+            "b.energy.vast.tcs.tesla.com",
+            "bettertime-stage.tesla.com",
+            "bettertime.tesla.com",
+            "billing.tesla.com",
+            "bn.na.vn.cloud.tesla.com",
+            "bolt.tesla.com",
+            "bom01-gpgw1.tesla.com",
+            "ca.tesla.com",
+            "cdn-design.tesla.com",
+            "chat-staging.bottlerocket.tesla.com",
+            "click.email.tesla.com",
+            "click.emails.tesla.com",
+            "cloud.tesla.com",
+            "cn.tesla.com",
+            "cnvpn.tesla.com",
+            "cnvpn1.tesla.com",
+            "codeload.extgithub.tesla.com",
+            "codeload.github-ap.tesla.com",
+            "codeload.github-fw.tesla.com",
+            "codeload.github-it.tesla.com",
+            "codeload.github.tesla.com",
+            "comparison.tesla.com",
+            "consul.bottlerocket.tesla.com",
+            "containers.extgithub.tesla.com",
+            "courses.tesla.com",
+            "cua-chat-ui.tesla.com",
+            "cua-help-me-charge-ui.tesla.com",
+            "cua-help-me-choose-ui.tesla.com",
+            "cua-test-drive-ui.tesla.com",
+            "cx-apac-stg.tesla.com",
+            "cx-apac.tesla.com",
+            "cx-api-apac-stg.tesla.com",
+            "cx-api-apac.tesla.com",
+            "cxadmin-apac-stg.tesla.com",
+            "cxadmin-apac.tesla.com",
+            "cxadmin-api-apac-stg.tesla.com",
+            "cxadmin-api-apac.tesla.com",
+            "cyberbeer.tesla.com",
+            "dal11-gpgw1.tesla.com",
+            "darkfield.tesla.com",
+            "de.tesla.com",
+            "dev-hermes-qd.tesla.com",
+            "developer.tesla.com",
+            "dex.ops.bn.na.vn.cloud.tesla.com",
+            "dhc.tesla.com",
+            "digitalassets-accounts.tesla.com",
+            "digitalassets-contents.tesla.com",
+            "digitalassets-energy.tesla.com",
+            "digitalassets-secure.tesla.com",
+            "digitalassets-shop.tesla.com",
+            "digitalassets-stage.tesla.com",
+            "digitalassets.tesla.com",
+            "digitalcontent.tesla.com",
+            "diner-api-stage.tesla.com",
+            "diner-api.tesla.com",
+            "diner-webapp-stage.tesla.com",
+            "diner-webapp.tesla.com",
+            "discovery-service.bottlerocket.tesla.com",
+            "discovery.bottlerocket.tesla.com",
+            "docker.extgithub.tesla.com",
+            "docker.github-ap.tesla.com",
+            "docker.github-fw.tesla.com",
+            "docker.github-it.tesla.com",
+            "docker.github.tesla.com",
+            "docs.bottlerocket.tesla.com",
+            "doraemon-svc-apac-stg.tesla.com",
+            "doraemon-svc-apac.tesla.com",
+            "dro.tesla.com",
+            "echo.tesla.com",
+            "edr-eu.tesla.com",
+            "edr.tesla.com",
+            "embed-staging.bottlerocket.tesla.com",
+            "employeefeedback.tesla.com",
+            "energy-technician.bottlerocket.tesla.com",
+            "energy.bottlerocket.tesla.com",
+            "energy.tesla.com",
+            "energydesk.tesla.com",
+            "energylibrary.tesla.com",
+            "energysupport.tesla.com",
+            "eng.america.vn.cloud.tesla.com",
+            "eng.euw1.vn.cloud.tesla.com",
+            "eng.na.vn.cloud.tesla.com",
+            "eng.usw.vn.cloud.tesla.com",
+            "eng.usw2.vn.cloud.tesla.com",
+            "engage.tesla.com",
+            "epc.tesla.com",
+            "epcapi.tesla.com",
+            "epuca-prd.euw1.vn.cloud.tesla.com",
+            "epuca-prd.usw2.vn.cloud.tesla.com",
+            "eu.logs.tesla.com",
+            "events.tesla.com",
+            "exp-zcp-cloud-eu-itmfg-staging.tesla.com",
+            "exp-zcp-cloud-eu-itmfg.tesla.com",
+            "exp-zcp-cloud-na-itmfg-staging.tesla.com",
+            "exp-zcp-cloud-na-itmfg.tesla.com",
+            "extgithub.tesla.com",
+            "feedback.tesla.com",
+            "fleet-api.eng.na.vn.cloud.tesla.com",
+            "fleet-api.prd.eu.vn.cloud.tesla.com",
+            "fleet-api.prd.na.vn.cloud.tesla.com",
+            "fleet-auth.prd.vn.cloud.tesla.com",
+            "fleet-streaming-api.eng.vn.cloud.tesla.com",
+            "fleet-streaming-api.prd.vn.cloud.tesla.com",
+            "fleetview.america.fn.tesla.com",
+            "fleetview.europe.fn.tesla.com",
+            "fleetview.fn.tesla.com",
+            "fleetview.prd.america.fn.tesla.com",
+            "fleetview.prd.eu.fn.tesla.com",
+            "fleetview.prd.europe.fn.tesla.com",
+            "fleetview.prd.euw1.fn.tesla.com",
+            "fleetview.prd.na.fn.tesla.com",
+            "fleetview.prd.usw.fn.tesla.com",
+            "fleetview.prd.usw2.fn.tesla.com",
+            "fra05-gpgw1.tesla.com",
+            "frontend-tesla-int.us-west-2-eng-it.k8s.tesla.com",
+            "genai.tesla.com",
+            "gf.tesla.com",
+            "gfb.vdi.tesla.com",
+            "gigabier.tesla.com",
+            "gist.extgithub.tesla.com",
+            "gist.github-ap.tesla.com",
+            "gist.github-fw.tesla.com",
+            "gist.github-it.tesla.com",
+            "gist.github.tesla.com",
+            "github-ap.tesla.com",
+            "github-fw.tesla.com",
+            "github-it.tesla.com",
+            "github.tesla.com",
+            "gpv.tesla.com",
+            "gridlogic.energy.tesla.com",
+            "gridlogic.powerhub.energy.tesla.com",
+            "hermes-ap.eng.vn.cloud.tesla.com",
+            "hnd13-gpgw1.tesla.com",
+            "iad05-gpgw1.tesla.com",
+            "image-emails.tesla.com",
+            "image.emails.tesla.com",
+            "incontrol.tesla.com",
+            "inference-eu-staging.bottlerocket.tesla.com",
+            "inference-eu.bottlerocket.tesla.com",
+            "inference-staging.bottlerocket.tesla.com",
+            "inference-staging.tesla.com",
+            "inference.bottlerocket.tesla.com",
+            "inference.tesla.com",
+            "inside.tesla.com",
+            "integration-kronos-dev.tesla.com",
+            "integration.kronos.tesla.com",
+            "ir.bottlerocket.tesla.com",
+            "ir.tesla.com",
+            "keycloak-tesla-int.us-west-2-eng-it.k8s.tesla.com",
+            "krndevdb.tesla.com",
+            "kronos-dev.tesla.com",
+            "kronos.tesla.com",
+            "kronosdb-dev.tesla.com",
+            "kronosdb.tesla.com",
+            "lax32-gpgw1.tesla.com",
+            "link.tesla.com",
+            "links.tesla.com",
+            "live-data.america.fn.tesla.com",
+            "live-data.europe.fn.tesla.com",
+            "live-data.fn.tesla.com",
+            "live-data.prd.america.fn.tesla.com",
+            "live-data.prd.eu.fn.tesla.com",
+            "live-data.prd.europe.fn.tesla.com",
+            "live-data.prd.euw1.fn.tesla.com",
+            "live-data.prd.na.fn.tesla.com",
+            "live-data.prd.usw.fn.tesla.com",
+            "live-data.prd.usw2.fn.tesla.com",
+            "livestream.tesla.com",
+            "logcollector-ext.tesla.com",
+            "logs.tesla.com",
+            "logtransit-ext.tesla.com",
+            "marketing.tesla.com",
+            "maven.extgithub.tesla.com",
+            "maven.github-ap.tesla.com",
+            "maven.github-fw.tesla.com",
+            "maven.github-it.tesla.com",
+            "maven.github.tesla.com",
+            "media-server-api.eng.vn.cloud.tesla.com",
+            "media-server-api.prd.vn.cloud.tesla.com",
+            "media-server-qr.prd.america.vn.cloud.tesla.com",
+            "media.extgithub.tesla.com",
+            "media.github-ap.tesla.com",
+            "media.github-fw.tesla.com",
+            "media.github-it.tesla.com",
+            "media.github.tesla.com",
+            "mfa.tesla.com",
+            "mfg.tesla.com",
+            "mobile-links.eng.vn.cloud.tesla.com",
+            "mobile-links.prd.vn.cloud.tesla.com",
+            "mobile-ops-links.prd.vn.cloud.tesla.com",
+            "mobile.kronos.tesla.com",
+            "mobile.tesla.com",
+            "model3.tesla.com",
+            "monitoring.tesla.com",
+            "mta.email.tesla.com",
+            "mta.emails.tesla.com",
+            "mta2.email.tesla.com",
+            "mta2.emails.tesla.com",
+            "mta3.emails.tesla.com",
+            "mta4.emails.tesla.com",
+            "mta5.emails.tesla.com",
+            "my.tesla.com",
+            "na.logs.tesla.com",
+            "nema1450.tesla.com",
+            "notebooks.extgithub.tesla.com",
+            "notebooks.github-ap.tesla.com",
+            "notebooks.github-fw.tesla.com",
+            "notebooks.github-it.tesla.com",
+            "notebooks.github.tesla.com",
+            "npm.extgithub.tesla.com",
+            "npm.github-ap.tesla.com",
+            "npm.github-fw.tesla.com",
+            "npm.github-it.tesla.com",
+            "npm.github.tesla.com",
+            "npuca-prd.usw2.vn.cloud.tesla.com",
+            "npute-prd.usw2.vn.cloud.tesla.com",
+            "npuv-eng.usw2.vn.cloud.tesla.com",
+            "npuv-prd.usw2.vn.cloud.tesla.com",
+            "nuget.extgithub.tesla.com",
+            "nuget.github-ap.tesla.com",
+            "nuget.github-fw.tesla.com",
+            "nuget.github-it.tesla.com",
+            "nuget.github.tesla.com",
+            "nv.tesla.com",
+            "ny.tesla.com",
+            "o1.ptr2410.link.tesla.com",
+            "o2.ptr556.tesla.com",
+            "o3.ptr1444.tesla.com",
+            "o4.ptr1867.tesla.com",
+            "o5.ptr8466.tesla.com",
+            "o7.ptr6980.tesla.com",
+            "obs.tesla.com",
+            "ops.na.vn.cloud.tesla.com",
+            "origin-assets-contactus.tesla.com",
+            "ownerapi-alpha.prd.vn.cloud.tesla.com",
+            "ownerapi-api.prd.usw.vn.cloud.tesla.com",
+            "ownership.tesla.com",
+            "oxp-charging-guest-web.tesla.com",
+            "pages.extgithub.tesla.com",
+            "pages.github-ap.tesla.com",
+            "pages.github-fw.tesla.com",
+            "pages.github-it.tesla.com",
+            "pages.github.tesla.com",
+            "paloalto.tesla.com",
+            "partners.tesla.com",
+            "payment-dlocal-prod.tesla.com",
+            "payment-dlocal-stg.tesla.com",
+            "powerhub.energy.tesla.com",
+            "prd.america.vn.cloud.tesla.com",
+            "prd.eu.vn.cloud.tesla.com",
+            "prd.euw1.vn.cloud.tesla.com",
+            "prd.na.vn.cloud.tesla.com",
+            "prd.usw.vn.cloud.tesla.com",
+            "prd.usw2.vn.cloud.tesla.com",
+            "ptr1.tesla.com",
+            "ptr2.tesla.com",
+            "raw.extgithub.tesla.com",
+            "raw.github-ap.tesla.com",
+            "raw.github-fw.tesla.com",
+            "raw.github-it.tesla.com",
+            "raw.github.tesla.com",
+            "render.github-ap.tesla.com",
+            "render.github-fw.tesla.com",
+            "render.github-it.tesla.com",
+            "render.github.tesla.com",
+            "reply.extgithub.tesla.com",
+            "reply.github-ap.tesla.com",
+            "reply.github-fw.tesla.com",
+            "reply.github-it.tesla.com",
+            "reply.github.tesla.com",
+            "ro.github-ap.tesla.com",
+            "robotaxi-app-feedback-eng.tesla.com",
+            "robotaxi-app-feedback-prd.tesla.com",
+            "rubygems.extgithub.tesla.com",
+            "rubygems.github-ap.tesla.com",
+            "rubygems.github-fw.tesla.com",
+            "rubygems.github-it.tesla.com",
+            "rubygems.github.tesla.com",
+            "s3-sidekick-ssl.github.tesla.com",
+            "s3.a.iad06.tcs.tesla.com",
+            "s3.a.smf11.tcs.tesla.com",
+            "s3.a.smf12.tcs.tesla.com",
+            "s3.a.smf13.tcs.tesla.com",
+            "s3.a.vast.tcs.tesla.com",
+            "s3.b.ams15.tcs.tesla.com",
+            "s3.b.ams17.tcs.tesla.com",
+            "s3.b.smf11.tcs.tesla.com",
+            "s3.b.vast.tcs.tesla.com",
+            "s3.c.smf11.tcs.tesla.com",
+            "s3.d.smf11.tcs.tesla.com",
+            "sc-cppm.tesla.com",
+            "sc-eu-cppm.tesla.com",
+            "sentry.app.tesla.com",
+            "server.tesla.com",
+            "service.tesla.com",
+            "serviceapp.tesla.com",
+            "shop.tesla.com",
+            "signaling-alpha.prd.vn.cloud.tesla.com",
+            "signaling-robotics.eng.vn.cloud.tesla.com",
+            "sin05-gpgw1.tesla.com",
+            "sjc36-gpgw1.tesla.com",
+            "smarttax.tesla.com",
+            "solarbonds.tesla.com",
+            "sso-dev.tesla.com",
+            "sso.tesla.com",
+            "staging.bottlerocket.tesla.com",
+            "static-assets-contactus-comm-preferences.tesla.com",
+            "static-assets.tesla.com",
+            "static.tesla.com",
+            "sts-broker.bottlerocket.tesla.com",
+            "suppliers.tesla.com",
+            "syd14-gpgw1.tesla.com",
+            "taffy.bottlerocket.tesla.com",
+            "tesla-inc-docsys-eorg.tesla.com",
+            "teslacmgap01.tesla.com",
+            "teslacmgcn01.tesla.com",
+            "teslacmgeu01.tesla.com",
+            "teslacmgna01.tesla.com",
+            "teslacmgus01.tesla.com",
+            "teslamezcal.tesla.com",
+            "teslatequila.tesla.com",
+            "tf-poc.tesla.com",
+            "tokens-staging.bottlerocket.tesla.com",
+            "toolbox.tesla.com",
+            "tripx-alpha.prd.vn.cloud.tesla.com",
+            "tripx.eng.usw2.vn.cloud.tesla.com",
+            "tripx.prd.vn.cloud.tesla.com",
+            "triton-management-stg.tesla.com",
+            "triton-management-uat.tesla.com",
+            "triton-management.tesla.com",
+            "triton-server-stg.tesla.com",
+            "triton-server-uat.tesla.com",
+            "triton-server.tesla.com",
+            "tvs-api-stg.tesla.com",
+            "tvs-api-uat.tesla.com",
+            "tvs-api.tesla.com",
+            "tvs-stg.tesla.com",
+            "tvs-uat.tesla.com",
+            "tvs.tesla.com",
+            "tx.tesla.com",
+            "ui.a.smf11.tcs.tesla.com",
+            "ui.b.smf11.tcs.tesla.com",
+            "ui.c.smf11.tcs.tesla.com",
+            "ui.d.smf11.tcs.tesla.com",
+            "uploads.extgithub.tesla.com",
+            "uploads.github-ap.tesla.com",
+            "uploads.github-fw.tesla.com",
+            "uploads.github-it.tesla.com",
+            "uploads.github.tesla.com",
+            "vdi.tesla.com",
+            "veritas-staging.bottlerocket.tesla.com",
+            "view.emails.tesla.com",
+            "viewscreen.extgithub.tesla.com",
+            "viewscreen.github-ap.tesla.com",
+            "viewscreen.github-fw.tesla.com",
+            "viewscreen.github-it.tesla.com",
+            "viewscreen.github.tesla.com",
+            "vms.iad06.tcs.tesla.com",
+            "vms.smf13.tcs.tesla.com",
+            "vpn1.tesla.com",
+            "vpn2.tesla.com",
+            "vrp-stg.tesla.com",
+            "vs-bnc.na.vn.cloud.tesla.com",
+            "vs-bnc.usw2.vn.cloud.tesla.com",
+            "warpbilling.tesla.com",
+            "wdm-kronos-dev.tesla.com",
+            "wdm.kronos.tesla.com",
+            "wim-kronos-dev.tesla.com",
+            "wim.kronos.tesla.com",
+            "www.engage.tesla.com",
+            "www.tesla.com",
+            "x3-eng.obs.tesla.com",
+            "x3-prod.obs.tesla.com",
+            "x3.obs.tesla.com"
+        ],
+        "alive": [],
+        "tech_scans": []
+    },
+    "emailsecurity": {
+        "emailsecurity": {
+            "spf": [
+                {
+                    "status": "secure",
+                    "detail": "SPF properly configured: v=spf1 ip4:54.240.84.225/32 ip4:54.240.84.226/31 ip4:54.240.84.228/30 ip4:54.240.84.232/29 ip4:54.240.84.240/29 ip4:54.240.84.248/30 ip4:54.240.84.252/32 ip4:44.239.249.139 ip4:52.24.70.112 ip4:34.223.204.78 ip4:213.244.145.203 ip4:213.244.145.219 ip4:213\" \".244.145.204 ip4:213.244.145.220 ip4:8.47.24.203 ip4:8.47.24.219 ip4:8.47.24.204 ip4:8.47.24.220 ip4:8.45.124.203 ip4:8.45.124.219 ip4:8.45.124.204 ip4:8.45.124.220 ip4:8.21.14.203 ip4:8.21.14.219 ip4:8.21.14.204 ip4:8.21.14.220 ip4:8.21.14.194 ip4:8.21.1\" \"4.211 ip4:212.49.145.0/24 ip4:91.103.52.0/22 ip4:168.245.123.10 ip4:216.81.144.165 ip4:149.72.247.52 ip4:149.72.134.64 ip4:149.72.152.236 ip4:149.72.163.58 ip4:149.72.172.170 ip4:167.89.90.62 ip4:158.228.129.79 ip4:216.81.144.165 ip4:117.50.14.178 ip4:117\" \".50.35.199 ip4:54.240.42.110 ip4:54.240.42.111 ip4:199.71.239.178 ip4:67.216.183.10 ip4:8.43.178.222 ip4:64.95.144.196 ip4:199.71.239.52 include:u13494342.wl093.sendgrid.net include:spf.protection.outlook.com include:mail.zendesk.com include:_spfsn.teslam\" \"otors.com include:_spf.qualtrics.com include:_spf.ultipro.com include:_spf.psm.knowbe4.com include:spf1.sendcloud.org include:spf2.sendcloud.org -all"
+                }
+            ],
+            "dmarc": [
+                {
+                    "status": "found",
+                    "full_record": "v=DMARC1; p=reject; pct=100; rua=mailto:n2ju30bc@ag.dmarcian.com; ruf=mailto:n2ju30bc@fr.dmarcian.com; fo=1",
+                    "main_policy": "secure",
+                    "sub_policy": "not_set"
+                }
+            ],
+            "dkim": [
+                {
+                    "status": "secure",
+                    "selector": "selector1",
+                    "record": "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDrdHMOmLStiYdoFToER3wxvLfG5acW0LIlX2gXCvWgl8T4XFHQiTKQVWBnNGpe0xvjtCq19erx6nBvgNC8aGSGz6cbBqlE+nmBlRSgjbWGI1NvtfBLBHK3y2Lt3S6S/y8b21RQunB9MyOAMOQiCsuT5HeIWtMexzXMd1WstdSjQIDAQAB;"
+                }
+            ]
+        }
+    },
+    "risk": {
+        "domain": "https://tesla.com",
+        "social_links": [],
+        "clickjacking": [
+            {
+                "url": "https://www.tesla.com/en_GB/user/login",
+                "status": "HTTP 403"
+            },
+            {
+                "url": "https://solarbonds.tesla.com/a/login/",
+                "status": "SAFE"
+            },
+            {
+                "url": "https://www.tesla.com/es_ES/careers/search/job/maintenance-admin-specialist-253564",
+                "status": "HTTP 403"
+            },
+            {
+                "url": "https://www.tesla.com/sv_SE/careers/search/job/admin-hr-business-partner-226186",
+                "status": "HTTP 403"
+            },
+            {
+                "url": "https://engage.tesla.com/articles/317-register-official-club-website",
+                "status": "VULNERABLE"
+            },
+            {
+                "url": "https://engage.tesla.com/articles/236-register-tesla-club-wi-member",
+                "status": "VULNERABLE"
+            },
+            {
+                "url": "https://www.tesla.com/nl_BE/careers/search/job/junior-payroll-admin-specialist-german-speaker-m-w-d-gigafactory-berlin-brandenburg-259315",
+                "status": "HTTP 403"
+            },
+            {
+                "url": "https://www.tesla.com/ro_ro/login-error",
+                "status": "HTTP 403"
+            },
+            {
+                "url": "https://www.tesla.com/da_dk/login-error",
+                "status": "HTTP 403"
+            }
+        ],
+        "scanned_at": "2026-02-13T09:48:32.478129"
+    },
+    "sensitive": {
+        "google_dorks": {
+            "Password Files": [],
+            "Confidential Docs": [
+                {
+                    "title": "Tesla, Inc.",
+                    "link": "https://ir.tesla.com/_flysystem/s3/sec/000110465924059916/tm2413800d3_defa14a-gen.pdf"
+                },
+                {
+                    "title": "SOLAR RETROFIT TESLA PANEL MOUNT",
+                    "link": "https://energylibrary.tesla.com/docs/Public/Solar/Retrofit/Datasheet/TeslaPanelMount/CatalogTeslaPanelMount.pdf"
+                },
+                {
+                    "title": "UNITED STATES SECURITIES AND EXCHANGE ...",
+                    "link": "https://ir.tesla.com/_flysystem/s3/sec/999999999720000038/filename1.pdf"
+                },
+                {
+                    "title": "Schedule 14A",
+                    "link": "https://ir.tesla.com/_flysystem/s3/sec/000110465925107871/tm252289d50_defa14a-gen.pdf"
+                },
+                {
+                    "title": "MX 12V Harness System",
+                    "link": "https://service.tesla.com/docs/ModelX/CircuitDiagram/MX_Harness_Layout.pdf"
+                },
+                {
+                    "title": "TERMINAL PLATING",
+                    "link": "https://service.tesla.com/docs/ModelX/ElectricalReference2015/x-lhd-sop4/2016_ModelX_LHD_SOP4.pdf"
+                },
+                {
+                    "title": "Abbreviations Q R S T U V W X Y A B C D F G H J K L N P ...",
+                    "link": "https://service.tesla.com/docs/Model3/ElectricalReference/prog-220/interactive/pdf/index_print.pdf"
+                },
+                {
+                    "title": "PDF",
+                    "link": "https://ir.tesla.com/_flysystem/s3/sec/000110465925097170/tm252289d31_defa14a-gen.pdf"
+                },
+                {
+                    "title": "Tesla, Inc.",
+                    "link": "https://ir.tesla.com/_flysystem/s3/sec/000110465924069150/tm2413800d21_defa14a-gen.pdf"
+                }
+            ],
+            "Archives & Backups": []
+        },
+        "wayback_machine": {}
+    },
+    "shodan": {
+        "shodan_nmap": [
+            {
+                "ip": "23.11.176.19",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "tx.tesla.com",
+                    "a23-11-176-19.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Frankston East",
+                    "region_code": "VIC",
+                    "area_code": null,
+                    "longitude": 145.17963,
+                    "latitude": -37.95823,
+                    "country_code": "AU",
+                    "country_name": "Australia"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.65.200.187",
+                "org": "Akamai International, BV",
+                "hostnames": [
+                    "assets.raribleuserdata.com",
+                    "assets.rs-online.com",
+                    "digitalassets-accounts.tesla.com",
+                    "marketing-assets.seclock.com",
+                    "cdn1.rumie.org",
+                    "assets.cruise.co.uk",
+                    "assets.cabelas.ca",
+                    "assets.aifsabroad.com",
+                    "assets.basspro.com",
+                    "s6-sni.cloudinary.com",
+                    "assets.materialbank.com",
+                    "optimized.autograph.io",
+                    "media.vilans.nl",
+                    "image.fashiontofigure.com",
+                    "media-cdn.deca.art",
+                    "media.rspure.com",
+                    "media.feverup.com",
+                    "static.fincallorca.com",
+                    "video-assets.pubnation.com",
+                    "video-shield.pubnation.com",
+                    "mazinger-z.cloudinary.us",
+                    "images.top10websitetemplates.com",
+                    "media.meesenburg.com",
+                    "cdn.purebase.co",
+                    "assets.xfl.com",
+                    "assets.streamlinehq.com",
+                    "digitalassets-energy.tesla.com",
+                    "media.ross-simons.com",
+                    "vault.windstarcruises.com",
+                    "media.house.com.au",
+                    "media.robinskitchen.com.au",
+                    "cdn.currentlighting.com",
+                    "a23-65-200-187.deploy.static.akamaitechnologies.com",
+                    "media.nsbrands.com",
+                    "media-catalog.giglio.com",
+                    "image.nyandcompany.com",
+                    "media.veefriends.com",
+                    "c.media.kavehome.com",
+                    "static.creatorstack.com",
+                    "media.giglio.com"
+                ],
+                "location": {
+                    "city": "Paris",
+                    "region_code": "IDF",
+                    "area_code": null,
+                    "longitude": 2.3488,
+                    "latitude": 48.85341,
+                    "country_code": "FR",
+                    "country_name": "France"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "38.175.209.140",
+                "org": "Crunchbits LLC",
+                "hostnames": [
+                    "tesla.com",
+                    "undefined.hostname.localhost"
+                ],
+                "location": {
+                    "city": "Breinigsville",
+                    "region_code": "PA",
+                    "area_code": null,
+                    "longitude": -75.6313,
+                    "latitude": 40.53676,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "443"
+                ]
+            },
+            {
+                "ip": "89.185.85.184",
+                "org": "Aeza International LTD",
+                "hostnames": [
+                    "wealthygreen-n3.ptr.network",
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Frankfurt am Main",
+                    "region_code": "HE",
+                    "area_code": null,
+                    "longitude": 8.6831,
+                    "latitude": 50.1112,
+                    "country_code": "DE",
+                    "country_name": "Germany"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.215.22.254",
+                "org": "Akamai International, BV",
+                "hostnames": [
+                    "obs.tesla.com",
+                    "a23-215-22-254.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Frankfurt am Main",
+                    "region_code": "HE",
+                    "area_code": null,
+                    "longitude": 8.68417,
+                    "latitude": 50.11552,
+                    "country_code": "DE",
+                    "country_name": "Germany"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.219.60.112",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "www.tesla.com",
+                    "mfs-supplier-eng.mo.tesla.cn",
+                    "www.teslamotors.com",
+                    "mfs-supplier.mo.tesla.cn",
+                    "teslamotors.com",
+                    "ts.la",
+                    "a23-219-60-112.deploy.static.akamaitechnologies.com",
+                    "events.tesla.cn",
+                    "serviceapp.tesla.com",
+                    "static-assets.tesla.cn",
+                    "www.teslaautomation.de",
+                    "www.tesla.cn",
+                    "www.ts.la",
+                    "teslaautomation.de"
+                ],
+                "location": {
+                    "city": "Secaucus",
+                    "region_code": "NJ",
+                    "area_code": null,
+                    "longitude": -74.05653,
+                    "latitude": 40.78955,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.58.116.106",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "www.tesla.com",
+                    "mfs-supplier-eng.mo.tesla.cn",
+                    "www.teslamotors.com",
+                    "mfs-supplier.mo.tesla.cn",
+                    "teslamotors.com",
+                    "ts.la",
+                    "events.tesla.cn",
+                    "a23-58-116-106.deploy.static.akamaitechnologies.com",
+                    "serviceapp.tesla.com",
+                    "static-assets.tesla.cn",
+                    "www.teslaautomation.de",
+                    "www.tesla.cn",
+                    "www.ts.la",
+                    "teslaautomation.de"
+                ],
+                "location": {
+                    "city": "Mexico City",
+                    "region_code": "CMX",
+                    "area_code": null,
+                    "longitude": -99.12766,
+                    "latitude": 19.42847,
+                    "country_code": "MX",
+                    "country_name": "Mexico"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "107.172.252.27",
+                "org": "HostPapa",
+                "hostnames": [
+                    "tesla.com",
+                    "107-172-252-27-host.colocrossing.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.221.7.156",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "de.tesla.com",
+                    "a23-221-7-156.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Montr\u00e9al",
+                    "region_code": "QC",
+                    "area_code": null,
+                    "longitude": -73.58781,
+                    "latitude": 45.50884,
+                    "country_code": "CA",
+                    "country_name": "Canada"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.37.16.65",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "tesla.com",
+                    "a23-37-16-65.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Santa Clara",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.95524,
+                    "latitude": 37.35411,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.76.56.48",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "a23-76-56-48.deploy.static.akamaitechnologies.com",
+                    "energy.tesla.com"
+                ],
+                "location": {
+                    "city": "Lithia Springs",
+                    "region_code": "GA",
+                    "area_code": null,
+                    "longitude": -84.66049,
+                    "latitude": 33.794,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.42.184.95",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "a23-42-184-95.deploy.static.akamaitechnologies.com",
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Ibaraki",
+                    "region_code": "27",
+                    "area_code": null,
+                    "longitude": 135.56828,
+                    "latitude": 34.81641,
+                    "country_code": "JP",
+                    "country_name": "Japan"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "47.76.31.149",
+                "org": "Alibaba Cloud - HK",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Hong Kong",
+                    "region_code": "",
+                    "area_code": null,
+                    "longitude": 114.17469,
+                    "latitude": 22.27832,
+                    "country_code": "HK",
+                    "country_name": "Hong Kong"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "3306",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "23.218.77.159",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "obs.tesla.com",
+                    "a23-218-77-159.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "London",
+                    "region_code": "ENG",
+                    "area_code": null,
+                    "longitude": -0.12574,
+                    "latitude": 51.50853,
+                    "country_code": "GB",
+                    "country_name": "United Kingdom"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "107.150.27.228",
+                "org": "Madgenius.com",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Elk Grove Village",
+                    "region_code": "IL",
+                    "area_code": null,
+                    "longitude": -87.9931,
+                    "latitude": 42.0076,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "142.11.194.249",
+                "org": "Hostwinds Seattle",
+                "hostnames": [
+                    "tesla.com",
+                    "hwsrv-1306414.hostwindsdns.com"
+                ],
+                "location": {
+                    "city": "Dallas",
+                    "region_code": "TX",
+                    "area_code": null,
+                    "longitude": -96.80667,
+                    "latitude": 32.78306,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.33.249.15",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "www.tesla.com",
+                    "mfs-supplier-eng.mo.tesla.cn",
+                    "www.teslamotors.com",
+                    "mfs-supplier.mo.tesla.cn",
+                    "teslamotors.com",
+                    "a23-33-249-15.deploy.static.akamaitechnologies.com",
+                    "ts.la",
+                    "events.tesla.cn",
+                    "serviceapp.tesla.com",
+                    "static-assets.tesla.cn",
+                    "www.teslaautomation.de",
+                    "www.tesla.cn",
+                    "www.ts.la",
+                    "teslaautomation.de"
+                ],
+                "location": {
+                    "city": "Las Vegas",
+                    "region_code": "NV",
+                    "area_code": null,
+                    "longitude": -115.13722,
+                    "latitude": 36.17497,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "2.17.218.221",
+                "org": "Akamai Technologies",
+                "hostnames": [
+                    "sc-eu-cppm.tesla.com",
+                    "a2-17-218-221.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Istanbul",
+                    "region_code": "34",
+                    "area_code": null,
+                    "longitude": 28.94966,
+                    "latitude": 41.01384,
+                    "country_code": "TR",
+                    "country_name": "Turkey"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "69.63.208.41",
+                "org": "VoloNet Technologies, Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "Host-By.DMIT.com"
+                ],
+                "location": {
+                    "city": "Dallas",
+                    "region_code": "TX",
+                    "area_code": null,
+                    "longitude": -96.819,
+                    "latitude": 32.9503,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "8443"
+                ]
+            },
+            {
+                "ip": "131.203.4.89",
+                "org": "Two Degrees Mobile Limited",
+                "hostnames": [
+                    "www.tesla.com",
+                    "default-rdns.vocus.co.nz",
+                    "mfs-supplier-eng.mo.tesla.cn",
+                    "www.teslamotors.com",
+                    "mfs-supplier.mo.tesla.cn",
+                    "teslamotors.com",
+                    "ts.la",
+                    "events.tesla.cn",
+                    "serviceapp.tesla.com",
+                    "static-assets.tesla.cn",
+                    "www.teslaautomation.de",
+                    "www.tesla.cn",
+                    "www.ts.la",
+                    "teslaautomation.de"
+                ],
+                "location": {
+                    "city": "Auckland",
+                    "region_code": "AUK",
+                    "area_code": null,
+                    "longitude": 174.76349,
+                    "latitude": -36.84853,
+                    "country_code": "NZ",
+                    "country_name": "New Zealand"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "172.245.43.217",
+                "org": "chen he",
+                "hostnames": [
+                    "tesla.com",
+                    "172-245-43-217-host.colocrossing.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "104.194.68.216",
+                "org": "IT7 Networks Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "104.194.68.216.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "45.153.245.135",
+                "org": "Xiufeng Guo",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -122.0002,
+                    "latitude": 37.3066,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8080",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "23.216.2.221",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "sc-eu-cppm.tesla.com",
+                    "a23-216-2-221.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "154.21.199.89",
+                "org": "NetLab",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2509,
+                    "latitude": 34.0443,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "192.243.115.103",
+                "org": "IT7 Networks Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "192.243.115.103.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2509,
+                    "latitude": 34.0443,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "107.161.92.137",
+                "org": "HostPapa",
+                "hostnames": [
+                    "tesla.com",
+                    "107-161-92-137-host.colocrossing.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "23.62.176.89",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "tesla.com",
+                    "a23-62-176-89.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "El Segundo",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.41647,
+                    "latitude": 33.91918,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "47.239.250.255",
+                "org": "Alibaba Cloud LLC",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Hong Kong",
+                    "region_code": "",
+                    "area_code": null,
+                    "longitude": 114.17469,
+                    "latitude": 22.27832,
+                    "country_code": "HK",
+                    "country_name": "Hong Kong"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "2083"
+                ]
+            },
+            {
+                "ip": "23.49.244.62",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "tesla.com",
+                    "a23-49-244-62.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Lisbon",
+                    "region_code": "11",
+                    "area_code": null,
+                    "longitude": -9.13333,
+                    "latitude": 38.71667,
+                    "country_code": "PT",
+                    "country_name": "Portugal"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "154.21.199.14",
+                "org": "NetLab",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2509,
+                    "latitude": 34.0443,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "184.30.152.52",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "a184-30-152-52.deploy.static.akamaitechnologies.com",
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Vancouver",
+                    "region_code": "BC",
+                    "area_code": null,
+                    "longitude": -123.11934,
+                    "latitude": 49.24966,
+                    "country_code": "CA",
+                    "country_name": "Canada"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "38.49.57.58",
+                "org": "KURUN CLOUD INC",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "212.135.210.220",
+                "org": "Silicon Force Computing Ltd",
+                "hostnames": [
+                    "tesla.com",
+                    "mercury.sfcomputing.com"
+                ],
+                "location": {
+                    "city": "Nottingham",
+                    "region_code": "ENG",
+                    "area_code": null,
+                    "longitude": -1.15047,
+                    "latitude": 52.9536,
+                    "country_code": "GB",
+                    "country_name": "United Kingdom"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "163.61.102.197",
+                "org": "Internetwork Connections Sdn Bhd",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Johor Bahru",
+                    "region_code": "01",
+                    "area_code": null,
+                    "longitude": 103.7405,
+                    "latitude": 1.5035,
+                    "country_code": "MY",
+                    "country_name": "Malaysia"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "161.118.212.161",
+                "org": "500 Oracle Parkway",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Mumbai",
+                    "region_code": "MH",
+                    "area_code": null,
+                    "longitude": 72.88261,
+                    "latitude": 19.07283,
+                    "country_code": "IN",
+                    "country_name": "India"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "53",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "23.95.60.90",
+                "org": "HostPapa",
+                "hostnames": [
+                    "tesla.com",
+                    "23-95-60-90-host.colocrossing.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "80.251.208.165",
+                "org": "Cluster Logic Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "80.251.208.165.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "3000",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "2.21.228.221",
+                "org": "Akamai Technologies",
+                "hostnames": [
+                    "sc-eu-cppm.tesla.com",
+                    "a2-21-228-221.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Vienna",
+                    "region_code": "9",
+                    "area_code": null,
+                    "longitude": 16.37208,
+                    "latitude": 48.20849,
+                    "country_code": "AT",
+                    "country_name": "Austria"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "193.122.143.63",
+                "org": "Oracle Public Cloud",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Ashburn",
+                    "region_code": "VA",
+                    "area_code": null,
+                    "longitude": -77.48749,
+                    "latitude": 39.04372,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "38.59.245.209",
+                "org": "HK CEDOC LIMITED",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.8916,
+                    "latitude": 37.3329,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "103.150.8.120",
+                "org": "365 Group LLC",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Tokyo",
+                    "region_code": "13",
+                    "area_code": null,
+                    "longitude": 139.69171,
+                    "latitude": 35.6895,
+                    "country_code": "JP",
+                    "country_name": "Japan"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "193.46.218.68",
+                "org": "Huize Holdings LLC",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Fremont",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.9287,
+                    "latitude": 37.5176,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "31.13.158.78",
+                "org": "Epsilon Telecommunications Ltd",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "London",
+                    "region_code": "ENG",
+                    "area_code": null,
+                    "longitude": -0.12574,
+                    "latitude": 51.50853,
+                    "country_code": "GB",
+                    "country_name": "United Kingdom"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "154.21.198.151",
+                "org": "NetLab",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2509,
+                    "latitude": 34.0443,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "154.21.85.41",
+                "org": "DMIT Cloud Services",
+                "hostnames": [
+                    "tesla.com",
+                    "Host-By.DMIT.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "163.61.102.212",
+                "org": "Internetwork Connections Sdn Bhd",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Johor Bahru",
+                    "region_code": "01",
+                    "area_code": null,
+                    "longitude": 103.7405,
+                    "latitude": 1.5035,
+                    "country_code": "MY",
+                    "country_name": "Malaysia"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "156.245.246.8",
+                "org": "HK UNITE TELECOMMUNICATIONS DEVELOPMENT LIMITED",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Hong Kong",
+                    "region_code": "",
+                    "area_code": null,
+                    "longitude": 114.17469,
+                    "latitude": 22.27832,
+                    "country_code": "HK",
+                    "country_name": "Hong Kong"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "168.75.108.22",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "S\u00e3o Paulo",
+                    "region_code": "SP",
+                    "area_code": null,
+                    "longitude": -46.63611,
+                    "latitude": -23.5475,
+                    "country_code": "BR",
+                    "country_name": "Brazil"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "45.62.116.203",
+                "org": "IT7 Networks Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "45.62.116.203.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "8443"
+                ]
+            },
+            {
+                "ip": "146.235.224.169",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.7875,
+                    "latitude": 37.2329,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "67.230.176.3",
+                "org": "Cluster Logic Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "67.230.176.3.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "104.92.253.38",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "assets.raribleuserdata.com",
+                    "a104-92-253-38.deploy.static.akamaitechnologies.com",
+                    "assets.rs-online.com",
+                    "digitalassets-accounts.tesla.com",
+                    "marketing-assets.seclock.com",
+                    "cdn1.rumie.org",
+                    "assets.cruise.co.uk",
+                    "assets.cabelas.ca",
+                    "assets.aifsabroad.com",
+                    "assets.basspro.com",
+                    "s6-sni.cloudinary.com",
+                    "assets.materialbank.com",
+                    "optimized.autograph.io",
+                    "media.vilans.nl",
+                    "image.fashiontofigure.com",
+                    "media-cdn.deca.art",
+                    "media.rspure.com",
+                    "media.feverup.com",
+                    "static.fincallorca.com",
+                    "video-assets.pubnation.com",
+                    "video-shield.pubnation.com",
+                    "mazinger-z.cloudinary.us",
+                    "images.top10websitetemplates.com",
+                    "media.meesenburg.com",
+                    "cdn.purebase.co",
+                    "assets.xfl.com",
+                    "assets.streamlinehq.com",
+                    "digitalassets-energy.tesla.com",
+                    "media.ross-simons.com",
+                    "vault.windstarcruises.com",
+                    "media.house.com.au",
+                    "media.robinskitchen.com.au",
+                    "cdn.currentlighting.com",
+                    "media.nsbrands.com",
+                    "media-catalog.giglio.com",
+                    "image.nyandcompany.com",
+                    "media.veefriends.com",
+                    "c.media.kavehome.com",
+                    "static.creatorstack.com",
+                    "media.giglio.com"
+                ],
+                "location": {
+                    "city": "Seattle",
+                    "region_code": "WA",
+                    "area_code": null,
+                    "longitude": -122.33207,
+                    "latitude": 47.60621,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "93.177.64.195",
+                "org": "netcup GmbH",
+                "hostnames": [
+                    "tesla.com",
+                    "v2202504265166329600.hotsrv.de"
+                ],
+                "location": {
+                    "city": "N\u00fcrnberg",
+                    "region_code": "BY",
+                    "area_code": null,
+                    "longitude": 11.0222,
+                    "latitude": 49.4453,
+                    "country_code": "DE",
+                    "country_name": "Germany"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8080",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "74.48.129.181",
+                "org": "MULTACOM CORPORATION",
+                "hostnames": [
+                    "mail.zeaurx.com",
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "3000",
+                    "8000",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "192.18.130.102",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.7875,
+                    "latitude": 37.2329,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "47.76.45.253",
+                "org": "Alibaba Cloud - HK",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Hong Kong",
+                    "region_code": "",
+                    "area_code": null,
+                    "longitude": 114.17469,
+                    "latitude": 22.27832,
+                    "country_code": "HK",
+                    "country_name": "Hong Kong"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "192.9.146.100",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.7875,
+                    "latitude": 37.2329,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "38.47.124.238",
+                "org": "VMISS Inc.",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Tokyo",
+                    "region_code": "13",
+                    "area_code": null,
+                    "longitude": 139.69171,
+                    "latitude": 35.6895,
+                    "country_code": "JP",
+                    "country_name": "Japan"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8000",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "129.159.33.247",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.7875,
+                    "latitude": 37.2329,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "154.21.89.165",
+                "org": "DMIT Cloud Services",
+                "hostnames": [
+                    "tesla.com",
+                    "Host-By.DMIT.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "45.129.8.110",
+                "org": "xTom GmbH",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "D\u00fcsseldorf",
+                    "region_code": "NW",
+                    "area_code": null,
+                    "longitude": 6.77616,
+                    "latitude": 51.22172,
+                    "country_code": "DE",
+                    "country_name": "Germany"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8080",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "45.62.126.218",
+                "org": "IT7 Networks Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "45.62.126.218.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "8.209.220.92",
+                "org": "Shiodome Sumitomo Blog 1-9-2 TOKYO",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Tokyo",
+                    "region_code": "13",
+                    "area_code": null,
+                    "longitude": 139.69171,
+                    "latitude": 35.6895,
+                    "country_code": "JP",
+                    "country_name": "Japan"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "23.217.159.186",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "obs.tesla.com",
+                    "a23-217-159-186.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "New Delhi",
+                    "region_code": "DL",
+                    "area_code": null,
+                    "longitude": 77.2148,
+                    "latitude": 28.62137,
+                    "country_code": "IN",
+                    "country_name": "India"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "35.201.190.246",
+                "org": "Google LLC",
+                "hostnames": [
+                    "tesla.com",
+                    "246.190.201.35.bc.googleusercontent.com"
+                ],
+                "location": {
+                    "city": "Taipei",
+                    "region_code": "04",
+                    "area_code": null,
+                    "longitude": 121.52639,
+                    "latitude": 25.05306,
+                    "country_code": "TW",
+                    "country_name": "Taiwan"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "173.242.116.76",
+                "org": "Cluster Logic Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "173.242.116.76.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "192.9.142.187",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.7875,
+                    "latitude": 37.2329,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "102.223.74.242",
+                "org": "sun network company limited",
+                "hostnames": [
+                    "tesla.com",
+                    "spk.cloudie.hk"
+                ],
+                "location": {
+                    "city": "Johannesburg",
+                    "region_code": "GP",
+                    "area_code": null,
+                    "longitude": 28.04363,
+                    "latitude": -26.20227,
+                    "country_code": "ZA",
+                    "country_name": "South Africa"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "20.243.184.59",
+                "org": "Microsoft Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Tokyo",
+                    "region_code": "13",
+                    "area_code": null,
+                    "longitude": 139.69171,
+                    "latitude": 35.6895,
+                    "country_code": "JP",
+                    "country_name": "Japan"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "152.70.122.252",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.7875,
+                    "latitude": 37.2329,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "144.22.154.95",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "S\u00e3o Paulo",
+                    "region_code": "SP",
+                    "area_code": null,
+                    "longitude": -46.63611,
+                    "latitude": -23.5475,
+                    "country_code": "BR",
+                    "country_name": "Brazil"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "23.95.231.97",
+                "org": "HostPapa",
+                "hostnames": [
+                    "tesla.com",
+                    "23-95-231-97-host.colocrossing.com"
+                ],
+                "location": {
+                    "city": "Dublin",
+                    "region_code": "L",
+                    "area_code": null,
+                    "longitude": -6.24889,
+                    "latitude": 53.33306,
+                    "country_code": "IE",
+                    "country_name": "Ireland"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "45.62.112.8",
+                "org": "IT7 Networks Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "45.62.112.8.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "173.242.119.97",
+                "org": "Cluster Logic Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "173.242.119.97.16clouds.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.2666,
+                    "latitude": 34.0559,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "80",
+                    "3306",
+                    "8083",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "72.246.164.118",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "www.tesla.com",
+                    "mfs-supplier-eng.mo.tesla.cn",
+                    "www.teslamotors.com",
+                    "mfs-supplier.mo.tesla.cn",
+                    "teslamotors.com",
+                    "ts.la",
+                    "events.tesla.cn",
+                    "serviceapp.tesla.com",
+                    "static-assets.tesla.cn",
+                    "www.teslaautomation.de",
+                    "www.tesla.cn",
+                    "www.ts.la",
+                    "teslaautomation.de",
+                    "a72-246-164-118.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.210.16.122",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "www.tesla.com",
+                    "mfs-supplier-eng.mo.tesla.cn",
+                    "www.teslamotors.com",
+                    "mfs-supplier.mo.tesla.cn",
+                    "teslamotors.com",
+                    "ts.la",
+                    "events.tesla.cn",
+                    "serviceapp.tesla.com",
+                    "a23-210-16-122.deploy.static.akamaitechnologies.com",
+                    "static-assets.tesla.cn",
+                    "www.teslaautomation.de",
+                    "www.tesla.cn",
+                    "www.ts.la",
+                    "teslaautomation.de"
+                ],
+                "location": {
+                    "city": "Zwaanshoek",
+                    "region_code": "NH",
+                    "area_code": null,
+                    "longitude": 4.5958,
+                    "latitude": 52.2869,
+                    "country_code": "NL",
+                    "country_name": "Netherlands"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "37.60.251.247",
+                "org": "Contabo GmbH",
+                "hostnames": [
+                    "mail.edu-tesla.com"
+                ],
+                "location": {
+                    "city": "D\u00fcsseldorf",
+                    "region_code": "NW",
+                    "area_code": null,
+                    "longitude": 6.77616,
+                    "latitude": 51.22172,
+                    "country_code": "DE",
+                    "country_name": "Germany"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "25",
+                    "80",
+                    "465",
+                    "587",
+                    "993",
+                    "995"
+                ]
+            },
+            {
+                "ip": "45.136.255.182",
+                "org": "ReadyIDC Co., Ltd.",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Mueang Nonthaburi",
+                    "region_code": "12",
+                    "area_code": null,
+                    "longitude": 100.51477,
+                    "latitude": 13.86075,
+                    "country_code": "TH",
+                    "country_name": "Thailand"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "2083",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "13.212.96.57",
+                "org": "Amazon Data Services Singapore",
+                "hostnames": [
+                    "tesla.com",
+                    "ec2-13-212-96-57.ap-southeast-1.compute.amazonaws.com"
+                ],
+                "location": {
+                    "city": "Singapore",
+                    "region_code": "01",
+                    "area_code": null,
+                    "longitude": 103.85007,
+                    "latitude": 1.28967,
+                    "country_code": "SG",
+                    "country_name": "Singapore"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "142.171.140.153",
+                "org": "MULTACOM CORPORATION",
+                "hostnames": [
+                    "tesla.com",
+                    "153-201-234-23-dedicated.multacom.com"
+                ],
+                "location": {
+                    "city": "Los Angeles",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -118.24368,
+                    "latitude": 34.05223,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.62.64.108",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "www.tesla.com",
+                    "mfs-supplier-eng.mo.tesla.cn",
+                    "www.teslamotors.com",
+                    "mfs-supplier.mo.tesla.cn",
+                    "teslamotors.com",
+                    "ts.la",
+                    "a23-62-64-108.deploy.static.akamaitechnologies.com",
+                    "events.tesla.cn",
+                    "serviceapp.tesla.com",
+                    "static-assets.tesla.cn",
+                    "www.teslaautomation.de",
+                    "www.tesla.cn",
+                    "www.ts.la",
+                    "teslaautomation.de"
+                ],
+                "location": {
+                    "city": "Chicago",
+                    "region_code": "IL",
+                    "area_code": null,
+                    "longitude": -87.65005,
+                    "latitude": 41.85003,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "104.244.88.77",
+                "org": "Cluster Logic Inc",
+                "hostnames": [
+                    "tesla.com",
+                    "104.244.88.77.16clouds.com"
+                ],
+                "location": {
+                    "city": "New York City",
+                    "region_code": "NY",
+                    "area_code": null,
+                    "longitude": -74.0025,
+                    "latitude": 40.7185,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "10000"
+                ]
+            },
+            {
+                "ip": "5.231.106.53",
+                "org": "GHOSTnet Network used for IP-Services",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Frankfurt am Main",
+                    "region_code": "HE",
+                    "area_code": null,
+                    "longitude": 8.68417,
+                    "latitude": 50.11552,
+                    "country_code": "DE",
+                    "country_name": "Germany"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "443"
+                ]
+            },
+            {
+                "ip": "104.107.108.221",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "sc-eu-cppm.tesla.com",
+                    "a104-107-108-221.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Aubervilliers",
+                    "region_code": "IDF",
+                    "area_code": null,
+                    "longitude": 2.38333,
+                    "latitude": 48.91667,
+                    "country_code": "FR",
+                    "country_name": "France"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "23.35.251.185",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "sc-cppm.tesla.com",
+                    "a23-35-251-185.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Al Fujairah City",
+                    "region_code": "FU",
+                    "area_code": null,
+                    "longitude": 56.34141,
+                    "latitude": 25.11641,
+                    "country_code": "AE",
+                    "country_name": "United Arab Emirates"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "104.71.129.185",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "sc-cppm.tesla.com",
+                    "a104-71-129-185.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Singapore",
+                    "region_code": "01",
+                    "area_code": null,
+                    "longitude": 103.85007,
+                    "latitude": 1.28967,
+                    "country_code": "SG",
+                    "country_name": "Singapore"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "23.221.13.107",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "assets.raribleuserdata.com",
+                    "assets.rs-online.com",
+                    "digitalassets-accounts.tesla.com",
+                    "marketing-assets.seclock.com",
+                    "cdn1.rumie.org",
+                    "assets.cruise.co.uk",
+                    "assets.cabelas.ca",
+                    "assets.aifsabroad.com",
+                    "assets.basspro.com",
+                    "s6-sni.cloudinary.com",
+                    "assets.materialbank.com",
+                    "optimized.autograph.io",
+                    "media.vilans.nl",
+                    "image.fashiontofigure.com",
+                    "media-cdn.deca.art",
+                    "media.rspure.com",
+                    "media.feverup.com",
+                    "static.fincallorca.com",
+                    "video-assets.pubnation.com",
+                    "video-shield.pubnation.com",
+                    "mazinger-z.cloudinary.us",
+                    "images.top10websitetemplates.com",
+                    "media.meesenburg.com",
+                    "cdn.purebase.co",
+                    "assets.xfl.com",
+                    "assets.streamlinehq.com",
+                    "digitalassets-energy.tesla.com",
+                    "media.ross-simons.com",
+                    "vault.windstarcruises.com",
+                    "media.house.com.au",
+                    "media.robinskitchen.com.au",
+                    "cdn.currentlighting.com",
+                    "media.nsbrands.com",
+                    "media-catalog.giglio.com",
+                    "image.nyandcompany.com",
+                    "media.veefriends.com",
+                    "c.media.kavehome.com",
+                    "static.creatorstack.com",
+                    "media.giglio.com",
+                    "a23-221-13-107.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Montr\u00e9al",
+                    "region_code": "QC",
+                    "area_code": null,
+                    "longitude": -73.58781,
+                    "latitude": 45.50884,
+                    "country_code": "CA",
+                    "country_name": "Canada"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.203.232.103",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "opinion.desjardins.com",
+                    "s.crsurveyresearch.com",
+                    "survey.howwasqantas.com",
+                    "feedback.transunion.com",
+                    "www.aexpfeedback.com",
+                    "feedback.virginaustralia.com",
+                    "www.experienceweek.com",
+                    "shop.5forthefight.org",
+                    "5forthefight.com.au",
+                    "feedback.bms.com",
+                    "forms.wool.com",
+                    "yoursay.sydneywater.com.au",
+                    "survey.engie.com",
+                    "x4summit.com",
+                    "employeefeedback.tesla.com",
+                    "voc.bcbsnc.com",
+                    "www.qualtrics.pl",
+                    "connect.aisnsw.edu.au",
+                    "survey.ni.com",
+                    "survey.guidehouse.com",
+                    "survey.adhb.govt.nz",
+                    "survey.bakertilly.com",
+                    "customerfeedback.microsoft.com",
+                    "CTSUSurvey.bain.com",
+                    "assessment.appliedvalue.com",
+                    "youthresearch.uni.lu",
+                    "www.treadsolutions.com",
+                    "insight.kddi.com",
+                    "surveys.kpmg.ch",
+                    "surveys.lhw.com",
+                    "customerpanelsurvey.jetstar.com",
+                    "www.disneypeoplesurveys.com",
+                    "feedback.digikey.com",
+                    "www.x4summit.com",
+                    "www.treadbank.com",
+                    "qualtrics.pl",
+                    "feedback.tesla.com",
+                    "survey.waseda.jp",
+                    "survey.clientsurvey.firstcitizens.com",
+                    "feedback.gruener-fisher.de",
+                    "www.5forthefight.org",
+                    "clientinsights.spectrumenterprise.com",
+                    "surveys.kpmg.com.au",
+                    "survey.radial.com",
+                    "surveys.ipsossay.com",
+                    "feedback.geha.com",
+                    "survey.deliverybackbone.ema.kpmg.com",
+                    "feedback.illumina.com",
+                    "survey.ujafedny.org",
+                    "listening.netapp.com",
+                    "form.mastercard.com",
+                    "mobile.qprod.net",
+                    "sondaggi.novacoop.info",
+                    "survey.deliverybackbone.kpmg.com",
+                    "www.5forthefight.com.au",
+                    "a23-203-232-103.deploy.static.akamaitechnologies.com",
+                    "feedback.wolseleycanada.ca",
+                    "feedback.mastercard.com",
+                    "akamaisecure3.qualtrics.com",
+                    "feedback.stjude.org",
+                    "surveyq.liebherr.com",
+                    "www.fcaonlinesurveys.org.uk",
+                    "www.uspeak.ultimatesoftware.com",
+                    "satisfaction.bureauveritas.com",
+                    "feedback.travelport.com",
+                    "www.cxweek.com",
+                    "advisory.howwasqantas.com",
+                    "research.CenterPointEnergy.com",
+                    "survey.bualuang.co.th",
+                    "www.treadvision.com",
+                    "5forthefight.org",
+                    "sgfeedback.parkwaypantai.com",
+                    "www.treadmade.com",
+                    "partnerfeedback.booking.com",
+                    "analysis.usitc.gov",
+                    "surveys.kpmg.com.sg"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.89496,
+                    "latitude": 37.33939,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "184.25.171.185",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "a184-25-171-185.deploy.static.akamaitechnologies.com",
+                    "sc-cppm.tesla.com"
+                ],
+                "location": {
+                    "city": "San Jose",
+                    "region_code": "CA",
+                    "area_code": null,
+                    "longitude": -121.89496,
+                    "latitude": 37.33939,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "184.26.34.97",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "apac-cppm.tesla.com",
+                    "a184-26-34-97.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Houston",
+                    "region_code": "TX",
+                    "area_code": null,
+                    "longitude": -95.36327,
+                    "latitude": 29.76328,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "194.58.42.30",
+                "org": "Big Data Host LLC",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Almaty",
+                    "region_code": "ALA",
+                    "area_code": null,
+                    "longitude": 76.91667,
+                    "latitude": 43.25,
+                    "country_code": "KZ",
+                    "country_name": "Kazakhstan"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "38.179.85.179",
+                "org": "Global Communication Network Limited",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Phoenix",
+                    "region_code": "AZ",
+                    "area_code": null,
+                    "longitude": -112.07404,
+                    "latitude": 33.44838,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.198.95.140",
+                "org": "Akamai International, BV",
+                "hostnames": [
+                    "opinion.desjardins.com",
+                    "s.crsurveyresearch.com",
+                    "survey.howwasqantas.com",
+                    "feedback.transunion.com",
+                    "www.aexpfeedback.com",
+                    "feedback.virginaustralia.com",
+                    "www.experienceweek.com",
+                    "shop.5forthefight.org",
+                    "5forthefight.com.au",
+                    "feedback.bms.com",
+                    "forms.wool.com",
+                    "yoursay.sydneywater.com.au",
+                    "survey.engie.com",
+                    "x4summit.com",
+                    "employeefeedback.tesla.com",
+                    "voc.bcbsnc.com",
+                    "www.qualtrics.pl",
+                    "connect.aisnsw.edu.au",
+                    "survey.ni.com",
+                    "survey.guidehouse.com",
+                    "survey.adhb.govt.nz",
+                    "survey.bakertilly.com",
+                    "customerfeedback.microsoft.com",
+                    "CTSUSurvey.bain.com",
+                    "a23-198-95-140.deploy.static.akamaitechnologies.com",
+                    "assessment.appliedvalue.com",
+                    "youthresearch.uni.lu",
+                    "www.treadsolutions.com",
+                    "insight.kddi.com",
+                    "surveys.kpmg.ch",
+                    "surveys.lhw.com",
+                    "customerpanelsurvey.jetstar.com",
+                    "www.disneypeoplesurveys.com",
+                    "feedback.digikey.com",
+                    "www.x4summit.com",
+                    "www.treadbank.com",
+                    "qualtrics.pl",
+                    "feedback.tesla.com",
+                    "survey.waseda.jp",
+                    "survey.clientsurvey.firstcitizens.com",
+                    "feedback.gruener-fisher.de",
+                    "www.5forthefight.org",
+                    "clientinsights.spectrumenterprise.com",
+                    "surveys.kpmg.com.au",
+                    "survey.radial.com",
+                    "surveys.ipsossay.com",
+                    "feedback.geha.com",
+                    "survey.deliverybackbone.ema.kpmg.com",
+                    "feedback.illumina.com",
+                    "survey.ujafedny.org",
+                    "listening.netapp.com",
+                    "form.mastercard.com",
+                    "mobile.qprod.net",
+                    "sondaggi.novacoop.info",
+                    "survey.deliverybackbone.kpmg.com",
+                    "www.5forthefight.com.au",
+                    "feedback.wolseleycanada.ca",
+                    "feedback.mastercard.com",
+                    "akamaisecure3.qualtrics.com",
+                    "feedback.stjude.org",
+                    "surveyq.liebherr.com",
+                    "www.fcaonlinesurveys.org.uk",
+                    "www.uspeak.ultimatesoftware.com",
+                    "satisfaction.bureauveritas.com",
+                    "feedback.travelport.com",
+                    "www.cxweek.com",
+                    "advisory.howwasqantas.com",
+                    "research.CenterPointEnergy.com",
+                    "survey.bualuang.co.th",
+                    "www.treadvision.com",
+                    "5forthefight.org",
+                    "sgfeedback.parkwaypantai.com",
+                    "www.treadmade.com",
+                    "partnerfeedback.booking.com",
+                    "analysis.usitc.gov",
+                    "surveys.kpmg.com.sg"
+                ],
+                "location": {
+                    "city": "Miami",
+                    "region_code": "FL",
+                    "area_code": null,
+                    "longitude": -80.19366,
+                    "latitude": 25.77427,
+                    "country_code": "US",
+                    "country_name": "United States"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "94.159.111.205",
+                "org": "H2.NEXUS Frankfurt Network",
+                "hostnames": [
+                    "tesla.com",
+                    "81777.h2.nexus"
+                ],
+                "location": {
+                    "city": "Frankfurt am Main",
+                    "region_code": "HE",
+                    "area_code": null,
+                    "longitude": 8.68417,
+                    "latitude": 50.11552,
+                    "country_code": "DE",
+                    "country_name": "Germany"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "443"
+                ]
+            },
+            {
+                "ip": "104.121.65.221",
+                "org": "Akamai International, BV",
+                "hostnames": [
+                    "sc-eu-cppm.tesla.com",
+                    "a104-121-65-221.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Kyiv",
+                    "region_code": "30",
+                    "area_code": null,
+                    "longitude": 30.5238,
+                    "latitude": 50.45466,
+                    "country_code": "UA",
+                    "country_name": "Ukraine"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "2083"
+                ]
+            },
+            {
+                "ip": "140.245.52.190",
+                "org": "Oracle Corporation",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Singapore",
+                    "region_code": "01",
+                    "area_code": null,
+                    "longitude": 103.746,
+                    "latitude": 1.3277,
+                    "country_code": "SG",
+                    "country_name": "Singapore"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "8000",
+                    "8443"
+                ]
+            },
+            {
+                "ip": "23.198.58.63",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "obs.tesla.com",
+                    "a23-198-58-63.deploy.static.akamaitechnologies.com"
+                ],
+                "location": {
+                    "city": "Sydney",
+                    "region_code": "NSW",
+                    "area_code": null,
+                    "longitude": 151.20732,
+                    "latitude": -33.86785,
+                    "country_code": "AU",
+                    "country_name": "Australia"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "23.194.37.193",
+                "org": "Akamai Technologies, Inc.",
+                "hostnames": [
+                    "opinion.desjardins.com",
+                    "s.crsurveyresearch.com",
+                    "survey.howwasqantas.com",
+                    "feedback.transunion.com",
+                    "www.aexpfeedback.com",
+                    "feedback.virginaustralia.com",
+                    "www.experienceweek.com",
+                    "shop.5forthefight.org",
+                    "5forthefight.com.au",
+                    "feedback.bms.com",
+                    "forms.wool.com",
+                    "yoursay.sydneywater.com.au",
+                    "survey.engie.com",
+                    "x4summit.com",
+                    "employeefeedback.tesla.com",
+                    "voc.bcbsnc.com",
+                    "www.qualtrics.pl",
+                    "connect.aisnsw.edu.au",
+                    "survey.ni.com",
+                    "survey.guidehouse.com",
+                    "a23-194-37-193.deploy.static.akamaitechnologies.com",
+                    "survey.adhb.govt.nz",
+                    "survey.bakertilly.com",
+                    "customerfeedback.microsoft.com",
+                    "CTSUSurvey.bain.com",
+                    "assessment.appliedvalue.com",
+                    "youthresearch.uni.lu",
+                    "www.treadsolutions.com",
+                    "insight.kddi.com",
+                    "surveys.kpmg.ch",
+                    "surveys.lhw.com",
+                    "customerpanelsurvey.jetstar.com",
+                    "www.disneypeoplesurveys.com",
+                    "feedback.digikey.com",
+                    "www.x4summit.com",
+                    "www.treadbank.com",
+                    "qualtrics.pl",
+                    "feedback.tesla.com",
+                    "survey.waseda.jp",
+                    "survey.clientsurvey.firstcitizens.com",
+                    "feedback.gruener-fisher.de",
+                    "www.5forthefight.org",
+                    "clientinsights.spectrumenterprise.com",
+                    "surveys.kpmg.com.au",
+                    "survey.radial.com",
+                    "surveys.ipsossay.com",
+                    "feedback.geha.com",
+                    "survey.deliverybackbone.ema.kpmg.com",
+                    "feedback.illumina.com",
+                    "survey.ujafedny.org",
+                    "listening.netapp.com",
+                    "form.mastercard.com",
+                    "mobile.qprod.net",
+                    "sondaggi.novacoop.info",
+                    "survey.deliverybackbone.kpmg.com",
+                    "www.5forthefight.com.au",
+                    "feedback.wolseleycanada.ca",
+                    "feedback.mastercard.com",
+                    "akamaisecure3.qualtrics.com",
+                    "feedback.stjude.org",
+                    "surveyq.liebherr.com",
+                    "www.fcaonlinesurveys.org.uk",
+                    "www.uspeak.ultimatesoftware.com",
+                    "satisfaction.bureauveritas.com",
+                    "feedback.travelport.com",
+                    "www.cxweek.com",
+                    "advisory.howwasqantas.com",
+                    "research.CenterPointEnergy.com",
+                    "survey.bualuang.co.th",
+                    "www.treadvision.com",
+                    "5forthefight.org",
+                    "sgfeedback.parkwaypantai.com",
+                    "www.treadmade.com",
+                    "partnerfeedback.booking.com",
+                    "analysis.usitc.gov",
+                    "surveys.kpmg.com.sg"
+                ],
+                "location": {
+                    "city": "Pak Kret",
+                    "region_code": "12",
+                    "area_code": null,
+                    "longitude": 100.49883,
+                    "latitude": 13.91301,
+                    "country_code": "TH",
+                    "country_name": "Thailand"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "80",
+                    "443"
+                ]
+            },
+            {
+                "ip": "8.217.13.157",
+                "org": "Alibaba Cloud (Singapore) Private Limited",
+                "hostnames": [
+                    "tesla.com"
+                ],
+                "location": {
+                    "city": "Hong Kong",
+                    "region_code": "",
+                    "area_code": null,
+                    "longitude": 114.17469,
+                    "latitude": 22.27832,
+                    "country_code": "HK",
+                    "country_name": "Hong Kong"
+                },
+                "vulnerabilities": [],
+                "ports": [
+                    "22",
+                    "2083"
+                ]
+            }
+        ]
+    },
+    "target": "tesla.com",
+    "scan_type": "deep",
+    "timestamp": "2026-02-13T04:44:53.127022+00:00"
+}

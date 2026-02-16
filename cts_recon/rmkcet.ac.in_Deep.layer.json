@@ -1,0 +1,112 @@
+{
+  "name": "rmkcet.ac.in_deep.layer",
+  "version": "4.5",
+  "versions": {
+    "attack": "17",
+    "navigator": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Automatically generated MITRE mapping from OSINT JSON.",
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "comment": "clickjacking"
+    },
+    {
+      "techniqueID": "T1598.002",
+      "tactic": "reconnaissance",
+      "comment": "dkim"
+    },
+    {
+      "techniqueID": "T1590.001",
+      "tactic": "reconnaissance",
+      "comment": "dns"
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "comment": "doc_urls"
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "comment": "docx_urls"
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "comment": "domain"
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "comment": "emailsecurity"
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "comment": "gau_urls"
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "comment": "google_dorks"
+    },
+    {
+      "techniqueID": "T1590.005",
+      "tactic": "reconnaissance",
+      "comment": "ip"
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "comment": "json_urls"
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "comment": "link"
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "comment": "pdf_urls"
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "comment": "shodan_nmap"
+    },
+    {
+      "techniqueID": "T1590.002",
+      "tactic": "reconnaissance",
+      "comment": "subdomains"
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "comment": "timestamp"
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "comment": "txt_urls"
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "comment": "url"
+    },
+    {
+      "techniqueID": "T1596.001",
+      "tactic": "reconnaissance",
+      "comment": "whois"
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "comment": "xml_urls"
+    }
+  ]
+}

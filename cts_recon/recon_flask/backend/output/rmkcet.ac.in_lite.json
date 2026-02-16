@@ -1,0 +1,30 @@
+{
+    "emailscrap": {
+        "domain": "rmkcet.ac.in",
+        "emails": []
+    },
+    "ipscan": {
+        "timestamp": "2026-02-13T09:19:04.383929",
+        "domain": "rmkcet.ac.in",
+        "dns": [
+            "208.115.225.178"
+        ],
+        "whois": [
+            {
+                "ip": "208.115.225.178",
+                "whois": [
+                    "WHOIS lookup failed: [WinError 2] The system cannot find the file specified"
+                ]
+            }
+        ]
+    },
+    "shodanlite": {
+        "shodan_results": []
+    },
+    "subdomain": {
+        "alive": []
+    },
+    "target": "rmkcet.ac.in",
+    "scan_type": "lite",
+    "timestamp": "2026-02-13T03:49:13.708356+00:00"
+}

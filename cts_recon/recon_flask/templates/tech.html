@@ -1,0 +1,534 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container mx-auto px-4 py-10 max-w-6xl">
+
+  <!-- Title -->
+  <div class="flex items-center justify-between mb-8">
+    <h2 class="text-3xl font-['Orbitron'] text-cyber capitalize">
+      {{ slug.replace('-', ' ') }} Results
+    </h2>
+    <a href="{{ url_for('deep_scan') }}" class="btn-secondary">Back to Workflow</a>
+  </div>
+
+  {% if module_data %}
+  <div class="space-y-8">
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div id="ipRangeCard" class="cursor-pointer bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 shadow-lg hover:bg-gray-800 transition">
+        <h2 class="text-xl font-semibold text-cyber">IP Ranges</h2>
+        <p class="mt-2 text-white text-lg">{{ module_data["ip_ranges_count"] | default(0) }}</p>
+      </div>
+
+      <div id="multiCloudCard" class="cursor-pointer bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 shadow-lg hover:bg-gray-800 transition">
+        <h2 class="text-xl font-semibold text-cyber">MultiCloud</h2>
+        <p class="mt-2 text-white text-lg">{{ module_data["multicloud_count"] | default(0) }}</p>
+      </div>
+
+      <div id="cveIdsCard" class="cursor-pointer bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 shadow-lg hover:bg-gray-800 transition">
+        <h2 class="text-xl font-semibold text-cyber">CVE IDs</h2>
+        <p class="mt-2 text-white text-lg">{{ module_data["cve_ids_count"] | default(0) }}</p>
+      </div>
+
+      <div id="techStackCard" class="cursor-pointer bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 shadow-lg hover:bg-gray-800 transition">
+        <h2 class="text-xl font-semibold text-cyber">Tech Stack</h2>
+        <p class="mt-2 text-white text-lg">{{ module_data["tech_stack_count"] | default(0) }}</p>
+      </div>
+    </div>
+
+    <!-- Phishing Vector Card -->
+    <div id="phishingVectorCard" class="cursor-pointer bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 shadow-lg hover:bg-gray-800 transition">
+      <h2 class="text-xl font-semibold text-cyber">Phishing Vector</h2>
+    </div>
+
+    <!-- Expandable Sections -->
+    <div id="techProfileDetails" class="space-y-6 mt-6">
+
+      {# ---------------- IP RANGE SECTION ---------------- #}
+      {% if module_data["ip_ranges"] %}
+      <div id="ipRangeSection" class="hidden bg-gray-900/80 border border-cyber/40 rounded-2xl p-6">
+        <h3 class="text-xl font-semibold text-cyber mb-4">IP Ranges</h3>
+        <div class="mb-4">
+          <input type="text" id="ipRangeSearch" placeholder="Search by IP, NetRange, or CIDR..." class="w-full p-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyber" />
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-white border border-cyber/40 rounded-lg" id="ipRangeTable">
+            <thead class="bg-gray-800 text-cyber">
+              <tr>
+                <th class="p-3">IP</th>
+                <th class="p-3">NetRange</th>
+                <th class="p-3">CIDR</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-700">
+              {% for entry in module_data["ip_ranges"] %}
+              <tr class="hover:bg-gray-800/60">
+                <td class="p-3">{{ entry.ip | default('N/A') }}</td>
+                <td class="p-3">{{ entry.netrange | default('N/A') }}</td>
+                <td class="p-3">{{ entry.cidr | default('N/A') }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Bar Graph by IP Class -->
+        <div class="mt-6 bg-gray-900/80 border border-cyber/40 rounded-2xl p-6">
+          <h3 class="text-xl font-semibold text-cyber mb-4">IP Class Distribution</h3>
+          <canvas id="ipClassBarChart" class="w-full h-40"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const ctx = document.getElementById('ipClassBarChart').getContext('2d');
+          const ipData = {{ module_data["ip_ranges"] | tojson | safe }};
+          const classCounts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+
+          ipData.forEach(entry => {
+            const ip = entry.ip || "";
+            const firstOctet = parseInt((ip.split('.')[0]||'0'), 10);
+            if(firstOctet >=1 && firstOctet <= 126) classCounts.A++;
+            else if(firstOctet >=128 && firstOctet <=191) classCounts.B++;
+            else if(firstOctet >=192 && firstOctet <=223) classCounts.C++;
+            else if(firstOctet >=224 && firstOctet <=239) classCounts.D++;
+            else if(firstOctet >=240 && firstOctet <=254) classCounts.E++;
+          });
+
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: Object.keys(classCounts),
+              datasets: [{
+                label: 'Number of IPs',
+                data: Object.values(classCounts),
+                backgroundColor: 'rgba(34,197,94,0.7)',
+                borderColor: 'rgba(34,197,94,1)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: { legend: { display: false }, tooltip: { enabled: true } },
+              scales: {
+                y: { beginAtZero: true, title: { display: true, text: 'Count', color: 'white' }, ticks: { color: 'white' } },
+                x: { title: { display: true, text: 'IP Class', color: 'white' }, ticks: { color: 'white' } }
+              }
+            }
+          });
+        });
+        </script>
+      </div>
+      {% endif %}
+
+      {# ---------------- MULTICLOUD SECTION (replaces S3 view) ---------------- #}
+      {% if module_data["multicloud"] %}
+<div id="multiCloudSection" class="hidden bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 mt-6">
+  <h3 class="text-xl font-semibold text-cyber mb-4">MultiCloud</h3>
+
+  <!-- Sub-cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for cloud, items in module_data["multicloud"].items() %}
+      {% if items|length > 0 %}
+      <div class="sub-card cursor-pointer bg-gray-800/80 border border-gray-700 rounded-xl p-4 shadow" data-target="{{ cloud }}">
+        <strong>{{ cloud }} ({{ items|length }})</strong>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Sub-card content -->
+  {% for cloud, items in module_data["multicloud"].items() %}
+    {% if items|length > 0 %}
+    <div id="{{ cloud }}" class="sub-card-body hidden mt-4 space-y-4">
+      {% for item in items %}
+      <div class="bg-gray-900/80 border border-cyber/40 rounded-xl p-4 shadow">
+        <p class="text-cyber font-semibold">URL:</p>
+        <p class="text-white break-all">
+          <a href="{{ item.url }}" target="_blank" class="text-blue-400 hover:underline">{{ item.url }}</a>
+          <button onclick="navigator.clipboard.writeText('{{ item.url }}')" class="ml-2 px-2 py-1 text-sm bg-gray-700 rounded hover:bg-gray-600">Copy</button>
+        </p>
+
+        {% set status = 'Not Vulnerable' %}
+        {% if item.read and item.write %}
+          {% set status = 'Vulnerable' %}
+        {% elif item.read or item.write %}
+          {% set status = 'Partial Vulnerable' %}
+        {% endif %}
+
+        <p class="text-cyber font-semibold mt-2">Access:</p>
+        <p class="text-white">
+          Read: {{ "✅" if item.read else "❌" }} | Write: {{ "✅" if item.write else "❌" }}
+          &nbsp; → <strong class="{% if status=='Vulnerable' %}text-red-500{% elif status=='Partial Vulnerable' %}text-yellow-400{% else %}text-green-400{% endif %}">{{ status }}</strong>
+        </p>
+
+        {% if cloud == 'Azure' %}
+          <p class="text-cyber font-semibold mt-2">Account:</p>
+          <p class="text-white">{{ item.account }}</p>
+          <p class="text-cyber font-semibold mt-2">Container:</p>
+          <p class="text-white">{{ item.container }}</p>
+        {% elif cloud in ['AWS_S3', 'Google_Cloud'] %}
+          <p class="text-cyber font-semibold mt-2">Bucket:</p>
+          <p class="text-white">{{ item.bucket }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#multiCloudSection .sub-card").forEach(card => {
+    card.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const targetId = card.getAttribute("data-target");
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      // Close all other provider sub-card bodies
+      document.querySelectorAll("#multiCloudSection .sub-card-body").forEach(el => {
+        if (el !== targetEl) el.classList.add("hidden");
+      });
+
+      // Toggle the clicked one
+      targetEl.classList.toggle("hidden");
+
+      if (!targetEl.classList.contains("hidden")) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+});
+</script>
+
+
+{% endif %}
+{# ---------------- CVE SECTION ---------------- #}
+{% if module_data.cve_ids %}
+<div id="cveIdsSection" class="hidden mt-6 bg-gray-900/80 border border-cyber/40 rounded-2xl p-6">
+  <h3 class="text-xl font-semibold text-cyber mb-4">
+    CVE IDs ({{ module_data.cve_ids_count }})
+  </h3>
+
+  <!-- Chart on Top -->
+  <div class="flex justify-center mb-6">
+    <div class="w-72 h-72">   {# 208px × 208px #}
+      <canvas id="cveSeverityChart"></canvas>
+    </div>
+  </div>
+
+  <ul class="space-y-2 text-white">
+    {% for vuln in module_data.cve_ids %}
+    <li class="bg-gray-800 p-2 rounded flex-col justify-between items-start">
+      <div class="flex justify-between w-full items-center">
+        <a href="https://nvd.nist.gov/vuln/detail/{{ vuln.cve }}" target="_blank"
+           class="text-cyber hover:underline font-mono">
+           {{ vuln.cve }}
+        </a>
+        <span class="{% if vuln.cvss is not none %}
+                        {% if vuln.cvss < 4 %}text-green-400
+                        {% elif vuln.cvss < 7 %}text-yellow-400
+                        {% elif vuln.cvss < 9 %}text-orange-400
+                        {% else %}text-red-500
+                        {% endif %}
+                      {% else %}
+                        text-gray-400
+                      {% endif %}">
+          CVSS: {{ vuln.cvss if vuln.cvss is not none else "N/A" }}
+        </span>
+      </div>
+
+      {% if vuln.hostnames %}
+      <div class="mt-2 text-sm text-gray-400">
+        <h4 class="font-semibold">Affected Hosts:</h4>
+        <ul class="list-disc list-inside">
+          {% for hostname in vuln.hostnames %}
+          <li>{{ hostname }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<!-- Chart.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const cveData = {{ module_data.cve_ids|tojson }};
+  const categories = { Low: 0, Medium: 0, High: 0, Critical: 0, Unknown: 0 };
+
+  cveData.forEach(v => {
+    if (v.cvss !== null && v.cvss !== undefined) {
+      if (v.cvss < 4) categories.Low++;
+      else if (v.cvss < 7) categories.Medium++;
+      else if (v.cvss < 9) categories.High++;
+      else categories.Critical++;
+    } else {
+      categories.Unknown++;
+    }
+  });
+
+  const ctx = document.getElementById("cveSeverityChart").getContext("2d");
+  new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: Object.keys(categories),
+      datasets: [{
+        data: Object.values(categories),
+        backgroundColor: ["#22c55e", "#eab308", "#f97316", "#ef4444", "#9ca3af"], // Low, Medium, High, Critical, Unknown
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,   // <-- makes Tailwind sizing effective
+      plugins: {
+        legend: { labels: { color: "#e5e7eb" } },
+        title: { display: true, text: "CVE Severity Distribution", color: "#e5e7eb" }
+      }
+    }
+  });
+</script>
+{% endif %}
+
+      {# ---------------- TECH STACK SECTION ---------------- #}
+      {% if module_data["tech_stack"] %}
+      <div id="techStackSection" class="hidden bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 mt-6">
+
+        {% if module_data["tech_counts"] %}
+        <h3 class="text-xl font-semibold text-cyber mb-4">Tech Stack Distribution</h3>
+        <div style="max-width: 500px; margin: auto;">
+          <canvas id="techPieChart"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const ctx = document.getElementById('techPieChart').getContext('2d');
+            const data = {
+              labels: {{ module_data["tech_counts"].keys() | list | safe }},
+              datasets: [{
+                data: {{ module_data["tech_counts"].values() | list | safe }},
+                backgroundColor: [
+                  '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40',
+                  '#8BC34A', '#00BCD4', '#FFC107', '#E91E63'
+                ],
+              }]
+            };
+
+            const config = {
+              type: 'pie',
+              data: data,
+              options: {
+                responsive: true,
+                plugins: {
+                  legend: { position: 'right' },
+                  tooltip: {
+                    callbacks: {
+                      label: function(context) {
+                        return context.label + ': ' + context.raw;
+                      }
+                    }
+                  }
+                }
+              }
+            };
+
+            new Chart(ctx, config);
+          });
+        </script>
+        {% endif %}
+
+        <h3 class="text-xl font-semibold text-cyber mb-4 mt-6">Tech Stack Details</h3>
+        <ul class="space-y-2 text-white">
+          {% for tech in module_data["tech_stack"] %}
+          <li class="bg-gray-800 p-2 rounded">
+            <p><strong>subdomain:</strong> {{ tech.subdomain }}</p>
+            <p><strong>stack:</strong> 
+  {% if tech.stack %}
+    {{ tech.stack | join(', ') }}
+  {% else %}
+    None
+  {% endif %}
+</p>
+
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+
+      {# ---------------- PHISHING VECTOR SECTION ---------------- #}
+      {% if module_data["phishing_vectors"] %}
+      <div id="phishingVectorSection" class="hidden bg-gray-900/80 border border-cyber/40 rounded-2xl p-6 mt-6">
+        <h3 class="text-xl font-semibold text-cyber mb-4">Phishing Vector</h3>
+
+        {% set emailsec = module_data["phishing_vectors"]["emailsecurity"] %}
+        {% if emailsec %}
+        <div class="sub-card mb-2 border p-3 rounded cursor-pointer" data-target="emailSecuritySection">
+          <strong>Email Security</strong>
+        </div>
+        <div id="emailSecuritySection" class="sub-card-body hidden mt-6 p-4 border rounded-lg bg-gray-900 shadow">
+          
+          <!-- SPF -->
+          {% if emailsec["spf"] %}
+            {% for spf in emailsec["spf"] %}
+              <div class="sub-card mb-2 border p-2 rounded cursor-pointer" data-target="spfSection{{ loop.index }}">
+                <strong>SPF Record {{ loop.index }}</strong>
+              </div>
+              <div id="spfSection{{ loop.index }}" class="sub-card-body hidden p-2 border-l border-gray-300">
+                <p>Status: 
+                  <span class="{{ 'text-green-500' if spf['status'] == 'secure' else 'text-red-500' }}">
+                    {{ spf['status'] }}
+                  </span>
+                </p>
+                <p>Detail: {{ spf['detail'] }}</p>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p class="text-gray-400">No SPF records found.</p>
+          {% endif %}
+
+          <!-- DMARC -->
+          {% if emailsec["dmarc"] %}
+            {% for dmarc in emailsec["dmarc"] %}
+              <div class="sub-card mb-2 border p-2 rounded cursor-pointer" data-target="dmarcSection{{ loop.index }}">
+                <strong>DMARC Record {{ loop.index }}</strong>
+              </div>
+              <div id="dmarcSection{{ loop.index }}" class="sub-card-body hidden p-2 border-l border-gray-300">
+                <p>Status: 
+                  <span class="{{ 'text-green-500' if dmarc['status'] == 'secure' else 'text-red-500' }}">
+                    {{ dmarc['status'] }}
+                  </span>
+                  (Main Policy: {{ dmarc['main_policy'] }}, Sub Policy: {{ dmarc['sub_policy'] }})
+                </p>
+                <p>Full Record: {{ dmarc['full_record'] }}</p>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p class="text-gray-400">No DMARC records found.</p>
+          {% endif %}
+
+          <!-- DKIM -->
+          {% if emailsec["dkim"] %}
+            {% for dkim in emailsec["dkim"] %}
+              <div class="sub-card mb-2 border p-2 rounded cursor-pointer" data-target="dkimSection{{ loop.index }}">
+                <strong>DKIM Record {{ loop.index }}</strong>
+              </div>
+              <div id="dkimSection{{ loop.index }}" class="sub-card-body hidden p-2 border-l border-gray-300">
+                <p>Selector: {{ dkim['selector'] }}</p>
+                <p>Status: 
+                  <span class="{{ 'text-green-500' if dkim['status'] == 'secure' else 'text-red-500' }}">
+                    {{ dkim['status'] }}
+                  </span>
+                </p>
+                <p class="break-all text-white">Record: {{ dkim['record'] }}</p>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p class="text-gray-400">No DKIM records found.</p>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% set clickjacking = module_data["phishing_vectors"]["clickjacking"] %}
+        {% if clickjacking %}
+          <div class="sub-card mb-2 border p-3 rounded cursor-pointer" data-target="clickjackingSection">
+            <strong>Clickjacking</strong>
+          </div>
+          <div id="clickjackingSection" class="sub-card-body hidden p-2 border-l border-gray-300">
+            {% for item in clickjacking %}
+              <div class="border border-gray-700 rounded-lg p-3 mb-2">
+                <p><strong>Link:</strong> 
+                  <a href="{{ item['url'] }}" target="_blank" class="text-blue-400 hover:underline">{{ item['url'] }}</a>
+                </p>
+                <p><strong>Status:</strong> 
+                  <span class="{{ 'text-green-400 font-semibold' if item['status'] == 'SAFE' else 'text-red-400 font-semibold' }}">
+                    {{ item['status'] }}
+                  </span>
+                </p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+    </div>
+
+    </div> <!-- END techProfileDetails -->
+  </div> <!-- END space-y-8 -->
+
+  {% else %}
+    <p class="mt-6 text-white text-lg">No data found for {{ slug }}.</p>
+  {% endif %}
+</div>
+
+<!-- Load Chart.js once at the bottom -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // === Main cards click ===
+  const mainCards = [
+    { id: "ipRangeCard", section: "ipRangeSection" },
+    { id: "multiCloudCard", section: "multiCloudSection" },
+    { id: "cveIdsCard", section: "cveIdsSection" },
+    { id: "techStackCard", section: "techStackSection" },
+    { id: "phishingVectorCard", section: "phishingVectorSection" }
+  ];
+
+  mainCards.forEach(({ id, section }) => {
+    const card = document.getElementById(id);
+    if (card) {
+      card.addEventListener("click", () => {
+        // Hide all sections
+        mainCards.forEach(({ section }) => {
+          const el = document.getElementById(section);
+          if (el) el.classList.add("hidden");
+        });
+        // Show clicked section
+        const target = document.getElementById(section);
+        if (target) target.classList.remove("hidden");
+      });
+    }
+  });
+
+  // === MultiCloud sub-card delegation ===
+  const multiCloudSection = document.getElementById("multiCloudSection");
+  if (multiCloudSection) {
+    multiCloudSection.addEventListener("click", (e) => {
+      const card = e.target.closest(".sub-card");
+      if (!card) return;
+      const targetId = card.getAttribute("data-target");
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      // Hide all other sub-card bodies
+      multiCloudSection.querySelectorAll(".sub-card-body").forEach(el => {
+        if (el !== targetEl) el.classList.add("hidden");
+      });
+
+      // Toggle clicked one
+      targetEl.classList.toggle("hidden");
+
+      // Scroll into view
+      if (!targetEl.classList.contains("hidden")) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  document.querySelectorAll("#phishingVectorSection .sub-card").forEach(card => {
+    card.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent triggering main card handler
+      const targetId = card.getAttribute("data-target");
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) targetEl.classList.toggle("hidden");
+    });
+  });
+});
+</script>
+{% endblock %}

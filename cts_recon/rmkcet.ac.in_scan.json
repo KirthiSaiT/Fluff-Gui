@@ -1,0 +1,15 @@
+{
+    "domain": "https://rmkcet.ac.in",
+    "social_links": [],
+    "clickjacking": [
+        {
+            "url": "https://rmkcet.ac.in/login",
+            "status": "HTTP 404"
+        },
+        {
+            "url": "https://rmkcet.ac.in/register",
+            "status": "HTTP 404"
+        }
+    ],
+    "scanned_at": "2026-02-14T09:19:52.925287"
+}

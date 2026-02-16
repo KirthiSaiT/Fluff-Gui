@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% block body %}
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Heading (centered, caps) -->
+<h2 class="text-3xl font-bold text-cyber text-center mt-10 mb-6" style="font-family: 'Orbitron', sans-serif;">Risk Identification</h2>
+
+<!-- Back Button -->
+<div class="flex justify-end mb-4">
+  <a href="{{ url_for('module_page', slug=slug) }}" 
+     class="px-4 py-2 bg-cyber text-gray-900 rounded hover:bg-cyber/80">
+     ← Back
+  </a>
+</div>
+
+<!-- Results Section (Left-aligned) -->
+<div id="resultsSection" class="mb-6 ml-2">
+  <!-- Any dynamic results (optional space) -->
+</div>
+
+<!-- Main Cards Row -->
+<div class="flex gap-4 mb-6">
+
+  <!-- Sensitive Card -->
+  <div class="flex-1 sub-card p-4 bg-gray-800 border border-cyber/40 rounded-lg cursor-pointer text-center"
+       data-target="sensitiveSection">
+    <strong>Sensitive</strong>
+  </div>
+
+  <!-- Broken Links Card -->
+  <div class="flex-1 sub-card p-4 bg-gray-800 border border-cyber/40 rounded-lg cursor-pointer text-center"
+       data-target="brokenLinksSection">
+    <strong>Broken Links (<span id="socialCount">{{ module_data.risk.social_links|length }}</span>)</strong>
+  </div>
+
+  <!-- Vulnerable URLs Card -->
+  <div class="flex-1 sub-card p-4 bg-gray-800 border border-cyber/40 rounded-lg cursor-pointer text-center"
+       data-target="vulnerableUrlsSection">
+    <strong>Vulnerable URLs</strong>
+  </div>
+
+</div>
+
+<!-- Sensitive Section -->
+<div id="sensitiveSection" class="sub-card-body hidden p-4 border-l border-gray-300 mb-4">
+
+  <!-- Google Dorks -->
+  <div class="sub-card mb-2 border p-2 rounded cursor-pointer" data-target="googleDorksSection">
+    <strong>Google Dorks</strong>
+  </div>
+  <div id="googleDorksSection" class="sub-card-body hidden p-2 border-l border-gray-500">
+    
+    <!-- Password Dorks -->
+    <div class="sub-card mb-2 border p-2 rounded cursor-pointer" 
+         data-target="passwordDorkSection" data-section="password_dork">
+      <strong>Password Dorks ({{ module_data.sensitive.google_dorks.password_dork|length }})</strong>
+    </div>
+    <div id="passwordDorkSection" class="sub-card-body hidden p-2 border-l border-gray-700">
+      <p class="text-gray-400">Click to load Password Dorks...</p>
+    </div>
+
+    <!-- Confidential Dorks -->
+    <div class="sub-card mb-2 border p-2 rounded cursor-pointer" 
+         data-target="confidentialDorkSection" data-section="confidential_dork">
+      <strong>Confidential Dorks ({{ module_data.sensitive.google_dorks.confidential_dork|length }})</strong>
+    </div>
+    <div id="confidentialDorkSection" class="sub-card-body hidden p-2 border-l border-gray-700">
+      <p class="text-gray-400">Click to load Confidential Dorks...</p>
+    </div>
+
+    <!-- Uncommon Ext Dorks -->
+    <div class="sub-card mb-2 border p-2 rounded cursor-pointer" 
+         data-target="uncommonExtDorkSection" data-section="uncommon_ext_dork">
+      <strong>Uncommon Ext Dorks ({{ module_data.sensitive.google_dorks.uncommon_ext_dork|length }})</strong>
+    </div>
+    <div id="uncommonExtDorkSection" class="sub-card-body hidden p-2 border-l border-gray-700">
+      <p class="text-gray-400">Click to load Uncommon Ext Dorks...</p>
+    </div>
+  </div>
+
+  <!-- Wayback Machine -->
+  <div class="sub-card mb-2 border p-2 rounded cursor-pointer" data-target="waybackMachineSection">
+    <strong>Wayback Machine</strong>
+  </div>
+  <div id="waybackMachineSection" class="sub-card-body hidden p-2 border-l border-gray-500">
+
+    {% for section in ['xls_urls','xml_urls','xlsx_urls','json_urls','pdf_urls','php_urls','war_urls'] %}
+      <div class="sub-card mb-2 border p-2 rounded cursor-pointer" 
+           data-target="{{ section }}Section" data-section="{{ section }}">
+        <strong>{{ section|replace('_',' ')|upper }} ({{ module_data.sensitive.wayback_machine[section]|length }})</strong>
+      </div>
+      <div id="{{ section }}Section" class="sub-card-body hidden p-2 border-l border-gray-700">
+        <p class="text-gray-400">Click to load {{ section|replace('_',' ') }}...</p>
+      </div>
+    {% endfor %}
+
+  
+
+  </div>
+</div>
+
+<!-- Broken Links Section -->
+<div id="brokenLinksSection" class="sub-card-body hidden p-4 border-l border-gray-300 mb-4">
+  <p class="mb-2"><strong>Domain:</strong> <span class="text-cyber">{{ module_data.risk.domain }}</span></p>
+  <button id="loadSocialLinksBtn" 
+          class="px-4 py-2 bg-cyber text-gray-900 rounded hover:bg-cyber/80 mb-4">
+    Load Social Links
+  </button>
+  <div id="socialLinksResults"></div>
+  <div class="flex justify-center">
+    <div style="width:500px; height:500px;">
+      <canvas id="socialPieChart" class="mt-4"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Vulnerable URLs Section -->
+<div id="vulnerableUrlsSection" class="sub-card-body hidden p-4 border-l border-gray-300 mb-4">
+  <div class="sub-card mb-2 border p-2 rounded cursor-pointer" data-target="gfResultsSection">
+    <strong>Vulnerable URLs</strong>
+  </div>
+
+  <div id="gfResultsSection" class="sub-card-body hidden p-2 border-l border-gray-500">
+    {% for section in ['xss','ssrf','sqli','rce','redirect','lfi','ssti','idor','rfi'] %}
+      <div class="sub-card mb-2 border p-2 rounded cursor-pointer" 
+           data-target="{{ section }}Section" data-section="{{ section }}">
+        <strong>{{ section|upper }} ({{ module_data.vulnerable_urls.gf_results[section]|length }})</strong>
+      </div>
+      <div id="{{ section }}Section" class="sub-card-body hidden p-2 border-l border-gray-700">
+        {% if module_data.vulnerable_urls.gf_results[section] %}
+          <ul class="list-disc pl-6 text-gray-300">
+            {% for url in module_data.vulnerable_urls.gf_results[section] %}
+              <li><a href="{{ url }}" target="_blank" class="text-cyber hover:underline">{{ url }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-gray-400">No {{ section|upper }} URLs found.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== Main cards: top-level toggle =====
+  const mainCards = document.querySelectorAll(".flex-1.sub-card");
+  mainCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const targetId = card.getAttribute("data-target");
+      mainCards.forEach(c => {
+        const tId = c.getAttribute("data-target");
+        const tEl = document.getElementById(tId);
+        if (tId !== targetId) tEl.classList.add("hidden");
+      });
+      document.getElementById(targetId).classList.toggle("hidden");
+    });
+  });
+
+  // ===== Nested sub-cards toggle =====
+  document.querySelectorAll(".sub-card:not(.flex-1)").forEach(card => {
+    card.addEventListener("click", async e => {
+      e.stopPropagation();
+      const targetId = card.getAttribute("data-target");
+      const section = card.getAttribute("data-section");
+      const targetEl = document.getElementById(targetId);
+
+      if (targetEl) {
+        targetEl.classList.toggle("hidden");
+
+        if (section && !targetEl.dataset.loaded) {
+          targetEl.innerHTML = "<p class='text-gray-400'>Loading...</p>";
+          const res = await fetch(`/api/vuln/${section}`);
+          const data = await res.json();
+
+          if (data.length > 0) {
+            targetEl.innerHTML = data.map(val =>
+              typeof val === "string"
+                ? `<p class="break-all"><a href="${val}" target="_blank" class="text-blue-400 hover:underline">${val}</a></p>`
+                : `<div><p class="font-semibold text-cyber">${val.title || 'Result'}</p><a href="${val.link}" target="_blank" class="text-blue-400 hover:underline break-all">${val.link || ''}</a></div>`
+            ).join("");
+          } else {
+            targetEl.innerHTML = `<p class="text-gray-400">No ${section.replace('_',' ')} found.</p>`;
+          }
+          targetEl.dataset.loaded = "true";
+        }
+      }
+    });
+  });
+
+  // ===== Social Links Button & Pie Chart =====
+  const socialBtn = document.getElementById("loadSocialLinksBtn");
+  const socialResults = document.getElementById("socialLinksResults");
+  const socialPie = document.getElementById("socialPieChart");
+  const socialCountEl = document.getElementById("socialCount");
+
+  socialBtn.addEventListener("click", async () => {
+    socialResults.innerHTML = "<p class='text-gray-400'>Loading...</p>";
+    const res = await fetch(`/api/vuln/social_links`);
+    const data = await res.json();
+
+    if (data.length > 0) {
+      let alive = 0, dead = 0;
+      socialResults.innerHTML = data.map(item => {
+        if(item.status === 'ALIVE') alive++; else dead++;
+        return `
+          <div class="border border-gray-700 rounded-lg p-3 mb-2 flex justify-between items-center">
+            <a href="${item.link}" target="_blank" class="text-blue-400 hover:underline break-all">${item.link}</a>
+            <span class="${item.status === 'ALIVE' ? 'text-green-500' : 'text-red-500'} font-semibold">${item.status}</span>
+          </div>
+        `;
+      }).join("");
+      socialCountEl.textContent = data.length;
+
+      // Fixed-size Pie chart
+      if(socialPie) {
+        new Chart(socialPie.getContext('2d'), {
+          type: 'pie',
+          data: { labels: ['ALIVE','DEAD'], datasets: [{ data:[alive, dead], backgroundColor:['#22c55e','#ef4444'] }] },
+          options: { responsive:false, maintainAspectRatio:false }
+        });
+      }
+
+    } else {
+      socialResults.innerHTML = `<p class="text-gray-400">No social links found.</p>`;
+      socialCountEl.textContent = 0;
+    }
+  });
+
+});
+</script>
+
+{% endblock %}

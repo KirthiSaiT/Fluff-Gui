@@ -1,0 +1,158 @@
+{
+    "bucket": {
+        "bucket": {
+            "timestamp": "2026-02-13T10:29:06.525663",
+            "domain": "aniwatchtv.to",
+            "dns": [],
+            "whois": [],
+            "AWS_S3": [],
+            "Google_Cloud": [],
+            "Azure": [],
+            "DigitalOcean": [],
+            "Oracle_Cloud": []
+        },
+        "target": "aniwatchtv.to",
+        "scan_type": "deep",
+        "timestamp": "2026-02-13T04:59:06.525663+00:00"
+    },
+    "domain": {
+        "domain": "aniwatchtv.to",
+        "subdomains": [
+            "aniwatchtv.to"
+        ],
+        "alive": [],
+        "tech_scans": []
+    },
+    "emailsecurity": {
+        "emailsecurity": {
+            "spf": [
+                {
+                    "status": "error",
+                    "detail": "SPF check failed: The DNS response does not contain an answer to the question: aniwatchtv.to. IN TXT"
+                }
+            ],
+            "dmarc": [
+                {
+                    "status": "error",
+                    "detail": "DMARC check failed: The DNS query name does not exist: _dmarc.aniwatchtv.to."
+                }
+            ],
+            "dkim": [
+                {
+                    "status": "vulnerable",
+                    "detail": "No DKIM record found or misconfigured"
+                }
+            ]
+        }
+    },
+    "risk": {
+        "domain": "https://aniwatchtv.to",
+        "social_links": [],
+        "clickjacking": [
+            {
+                "url": "https://aniwatchtv.to/character/register-50601",
+                "status": "VULNERABLE"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/login-issues-209645",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/when-i-try-to-login-it-says-this-account-is-not-verified-is-there-a-way-i-can-fix-this-51469?c_id=956011",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/account-login-issues-213688",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/request-to-mod-and-admin-please-can-you-add-more-avatar-from-more-anime-like-bleach-jojo-bizarre-adventure-and-more-other-anime-fans-please-support-support-by-185443?c_id=2929092",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/issue-with-login-213330",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/request-to-mod-or-admin-to-add-more-avtar-184795?c_id=2925792",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/how-to-become-mod-or-admin-418",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/there-is-issue-in-login-168631?c_id=2806394",
+                "status": "ERROR"
+            },
+            {
+                "url": "https://aniwatchtv.to/community/post/request-to-mod-and-admin-please-can-you-add-more-avatar-from-more-anime-like-bleach-aotjojo-bizarre-adventure-and-more-185077",
+                "status": "ERROR"
+            }
+        ],
+        "scanned_at": "2026-02-13T10:29:42.603997"
+    },
+    "sensitive": {
+        "google_dorks": {
+            "Password Files": [],
+            "Confidential Docs": [],
+            "Archives & Backups": []
+        },
+        "wayback_machine": {
+            "xml_urls": [
+                "https://aniwatchtv.to/atom.xml",
+                "https://aniwatchtv.to/feed.xml",
+                "https://aniwatchtv.to/feeds/all.atom.xml",
+                "https://aniwatchtv.to/index.xml",
+                "https://aniwatchtv.to/sitemap-genre.xml",
+                "https://aniwatchtv.to/sitemap-movie-1.xml",
+                "https://aniwatchtv.to/sitemap-movie-10.xml",
+                "https://aniwatchtv.to/sitemap-movie-11.xml",
+                "https://aniwatchtv.to/sitemap-movie-12.xml",
+                "https://aniwatchtv.to/sitemap-movie-13.xml",
+                "https://aniwatchtv.to/sitemap-movie-14.xml",
+                "https://aniwatchtv.to/sitemap-movie-15.xml",
+                "https://aniwatchtv.to/sitemap-movie-16.xml",
+                "https://aniwatchtv.to/sitemap-movie-17.xml",
+                "https://aniwatchtv.to/sitemap-movie-18.xml",
+                "https://aniwatchtv.to/sitemap-movie-19.xml",
+                "https://aniwatchtv.to/sitemap-movie-2.xml",
+                "https://aniwatchtv.to/sitemap-movie-20.xml",
+                "https://aniwatchtv.to/sitemap-movie-3.xml",
+                "https://aniwatchtv.to/sitemap-movie-4.xml",
+                "https://aniwatchtv.to/sitemap-movie-5.xml",
+                "https://aniwatchtv.to/sitemap-movie-6.xml",
+                "https://aniwatchtv.to/sitemap-movie-7.xml",
+                "https://aniwatchtv.to/sitemap-movie-8.xml",
+                "https://aniwatchtv.to/sitemap-movie-9.xml",
+                "https://aniwatchtv.to/sitemap-page.xml",
+                "https://aniwatchtv.to/sitemap-type.xml",
+                "https://aniwatchtv.to/sitemap.xml"
+            ],
+            "json_urls": [
+                "https://aniwatchtv.to/.well-known/ai-plugin.json",
+                "https://aniwatchtv.to/.well-known/assetlinks.json",
+                "https://aniwatchtv.to/.well-known/gpc.json",
+                "https://aniwatchtv.to/manifest.json"
+            ],
+            "txt_urls": [
+                "https://aniwatchtv.to/.well-known/dnt-policy.txt",
+                "https://aniwatchtv.to/.well-known/security.txt",
+                "https://aniwatchtv.to/.well-known/trust.txt",
+                "https://aniwatchtv.to/ads.txt",
+                "https://aniwatchtv.to/app-ads.txt",
+                "https://aniwatchtv.to/robots.txt"
+            ]
+        }
+    },
+    "shodan": {
+        "shodan_nmap": []
+    },
+    "vulnerable_urls": {
+        "gau_urls": [],
+        "gf_results": {}
+    },
+    "target": "aniwatchtv.to",
+    "scan_type": "deep",
+    "timestamp": "2026-02-13T05:06:24.121089+00:00"
+}

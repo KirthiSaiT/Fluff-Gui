@@ -1,0 +1,8 @@
+colorama
+requests
+beautifulsoup4
+shodan
+boto3
+google-search-results
+dnspython
+flask
