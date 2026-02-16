@@ -1,0 +1,23 @@
+{
+    "bucket": {
+        "timestamp": "2026-02-16T11:56:40.412675",
+        "domain": "rmkcet.ac.in",
+        "dns": [
+            "fe80"
+        ],
+        "whois": [
+            {
+                "ip": "fe80",
+                "whois": []
+            }
+        ],
+        "AWS_S3": [],
+        "Google_Cloud": [],
+        "Azure": [],
+        "DigitalOcean": [],
+        "Oracle_Cloud": []
+    },
+    "target": "rmkcet.ac.in",
+    "scan_type": "deep",
+    "timestamp": "2026-02-16T06:26:40.412675+00:00"
+}
