@@ -1,0 +1,11 @@
+The pipeline is the starting point of our project. It accepts input either as an IP address or a Domain. If the input is an IP, it is first resolved into a Domain using NSLookup, since all of our modules and tools operate only with Domain names.
+
+Once the Domain is ready, the user is prompted to choose between a Light Scan or a Deep Scan. Based on this choice, the pipeline dynamically routes the Domain to the corresponding modules.
+
+Each module, after completing its scan, sends the extracted information back to the pipeline. The pipeline maintains a central list called scan_data, where the results from each module are collected sequentially. Once all scans are complete, this data is consolidated into a JSON file.
+
+If the user chose a Light Scan, the results are saved as a Lite JSON file. This JSON is then passed to report.py, where it is reformatted into the structure that SpiderFoot accepts as input. After that, our UI automatically launches, and the user is redirected to SpiderFoot for report visualization.
+
+If the user chose a Deep Scan, the results are saved as a Deep JSON file. Unlike the Lite JSON, this file is sent directly to our customized UI for visualization without going through SpiderFoot.
+
+In summary, the pipeline orchestrates input handling, scan execution, result collection, JSON generation, and report visualization, adapting dynamically depending on whether the scan is Light or Deep.

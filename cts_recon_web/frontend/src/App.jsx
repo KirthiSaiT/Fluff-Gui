@@ -1,0 +1,278 @@
+import React, { useState, useEffect } from 'react'
+import { Activity, Shield, Search, Database, FileText } from 'lucide-react'
+import { startScan, getResults, getResultDetail } from './services/api'
+import { cn } from './lib/utils'
+
+function App() {
+    const [activeTab, setActiveTab] = useState('dashboard')
+    const [domain, setDomain] = useState('')
+    const [scanType, setScanType] = useState('deep')
+    const [recentScans, setRecentScans] = useState([])
+    const [selectedScan, setSelectedScan] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [scanStatus, setScanStatus] = useState(null)
+
+    useEffect(() => {
+        loadRecentScans()
+    }, [])
+
+    const loadRecentScans = async () => {
+        try {
+            const files = await getResults()
+            setRecentScans(files)
+        } catch (error) {
+            console.error("Failed to load scans", error)
+        }
+    }
+
+    const handleScan = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+        setScanStatus('Starting scan...')
+        try {
+            const res = await startScan(domain, scanType)
+            setScanStatus(`Scan started! ID: ${res.scan_id}. Results will appear in Dashboard shortly.`)
+            // Refresh list after a delay to allow file creation (simulated)
+            setTimeout(loadRecentScans, 2000)
+        } catch (error) {
+            console.error(error)
+            setScanStatus('Error starting scan')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const viewResult = async (filename) => {
+        try {
+            const data = await getResultDetail(filename)
+            setSelectedScan(data)
+            setActiveTab('results')
+        } catch (error) {
+            console.error("Failed to load detail", error)
+        }
+    }
+
+    return (
+        <div className="min-h-screen bg-background text-foreground font-sans flex">
+            {/* Sidebar */}
+            <aside className="w-64 border-r border-border bg-card p-6 flex flex-col">
+                <div className="flex items-center gap-2 mb-8">
+                    <Shield className="w-8 h-8 text-primary" />
+                    <h1 className="text-xl font-bold tracking-tight">CTS Recon</h1>
+                </div>
+
+                <nav className="space-y-2 flex-1">
+                    <NavItem
+                        icon={<Activity />}
+                        label="Dashboard"
+                        active={activeTab === 'dashboard'}
+                        onClick={() => setActiveTab('dashboard')}
+                    />
+                    <NavItem
+                        icon={<Search />}
+                        label="New Scan"
+                        active={activeTab === 'new-scan'}
+                        onClick={() => setActiveTab('new-scan')}
+                    />
+                    <NavItem
+                        icon={<FileText />}
+                        label="Results"
+                        active={activeTab === 'results'}
+                        onClick={() => setActiveTab('results')}
+                    />
+                </nav>
+
+                <div className="mt-auto pt-6 border-t border-border">
+                    <p className="text-xs text-muted-foreground">v2.0.0 Refactor</p>
+                </div>
+            </aside>
+
+            {/* Main Content */}
+            <main className="flex-1 p-8 overflow-y-auto">
+
+                {/* Dashboard View */}
+                {activeTab === 'dashboard' && (
+                    <div className="space-y-6">
+                        <header>
+                            <h2 className="text-3xl font-bold">Dashboard</h2>
+                            <p className="text-muted-foreground">Overview of your reconnaissance activities.</p>
+                        </header>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <StatCard title="Total Scans" value={recentScans.length} icon={<Database className="text-blue-500" />} />
+                            <StatCard title="Active Scans" value="0" icon={<Activity className="text-green-500" />} />
+                            <StatCard title="Vulnerabilities" value="N/A" icon={<Shield className="text-red-500" />} />
+                        </div>
+
+                        <section>
+                            <h3 className="text-xl font-semibold mb-4">Recent Scans</h3>
+                            <div className="bg-card border border-border rounded-lg overflow-hidden">
+                                <table className="w-full text-left text-sm">
+                                    <thead className="bg-muted text-muted-foreground">
+                                        <tr>
+                                            <th className="p-4 font-medium">Filename</th>
+                                            <th className="p-4 font-medium">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border">
+                                        {recentScans.map((file) => (
+                                            <tr key={file} className="hover:bg-muted/50 transition-colors">
+                                                <td className="p-4">{file}</td>
+                                                <td className="p-4">
+                                                    <button
+                                                        onClick={() => viewResult(file)}
+                                                        className="text-primary hover:underline font-medium"
+                                                    >
+                                                        View Report
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                        {recentScans.length === 0 && (
+                                            <tr>
+                                                <td colSpan="2" className="p-8 text-center text-muted-foreground">No scans found.</td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                )}
+
+                {/* New Scan View */}
+                {activeTab === 'new-scan' && (
+                    <div className="max-w-2xl mx-auto space-y-8">
+                        <header>
+                            <h2 className="text-3xl font-bold">New Scan</h2>
+                            <p className="text-muted-foreground">Launch a new reconnaissance mission.</p>
+                        </header>
+
+                        <form onSubmit={handleScan} className="bg-card border border-border p-8 rounded-lg space-y-6">
+                            <div className="space-y-2">
+                                <label htmlFor="domain" className="block text-sm font-medium">Target Domain / IP</label>
+                                <input
+                                    type="text"
+                                    id="domain"
+                                    value={domain}
+                                    onChange={(e) => setDomain(e.target.value)}
+                                    placeholder="example.com"
+                                    className="w-full bg-background border border-border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                                    required
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium">Scan Type</label>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <EventTypeOption
+                                        type="deep"
+                                        label="Deep Scan"
+                                        desc="Comprehensive analysis (Slower)"
+                                        selected={scanType === 'deep'}
+                                        onClick={() => setScanType('deep')}
+                                    />
+                                    <EventTypeOption
+                                        type="lite"
+                                        label="Lite Scan"
+                                        desc="Quick overview (Faster)"
+                                        selected={scanType === 'lite'}
+                                        onClick={() => setScanType('lite')}
+                                    />
+                                </div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="w-full bg-primary text-primary-foreground font-bold py-3 rounded-md hover:opacity-90 transition-opacity disabled:opacity-50"
+                            >
+                                {loading ? 'Initiating...' : 'Launch Scan'}
+                            </button>
+                        </form>
+
+                        {scanStatus && (
+                            <div className="p-4 rounded-md bg-muted text-muted-foreground border border-border text-center">
+                                {scanStatus}
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* Results View */}
+                {activeTab === 'results' && (
+                    <div className="space-y-6">
+                        <header className="flex justify-between items-center">
+                            <div>
+                                <h2 className="text-3xl font-bold">Scan Results</h2>
+                                <p className="text-muted-foreground">{selectedScan ? selectedScan.target : 'Select a scan to view details'}</p>
+                            </div>
+                            {selectedScan && <span className="text-sm bg-muted px-3 py-1 rounded-full">{selectedScan.scan_type}</span>}
+                        </header>
+
+                        {selectedScan ? (
+                            <div className="bg-card border border-border rounded-lg p-6">
+                                <pre className="text-xs font-mono whitespace-pre-wrap overflow-auto max-h-[600px] text-muted-foreground">
+                                    {JSON.stringify(selectedScan, null, 2)}
+                                </pre>
+                            </div>
+                        ) : (
+                            <div className="text-center py-20 text-muted-foreground bg-card border border-border rounded-lg">
+                                <Search className="w-12 h-12 mx-auto mb-4 opacity-20" />
+                                <p>Select a scan from the Dashboard to view results here.</p>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+            </main>
+        </div>
+    )
+}
+
+// UI Components
+function NavItem({ icon, label, active, onClick }) {
+    return (
+        <button
+            onClick={onClick}
+            className={cn(
+                "w-full flex items-center gap-3 px-4 py-3 rounded-md transition-colors text-sm font-medium",
+                active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+        >
+            {icon}
+            {label}
+        </button>
+    )
+}
+
+function StatCard({ title, value, icon }) {
+    return (
+        <div className="bg-card border border-border p-6 rounded-lg flex items-center gap-4">
+            <div className="p-3 bg-muted rounded-full">
+                {icon}
+            </div>
+            <div>
+                <p className="text-sm text-muted-foreground">{title}</p>
+                <p className="text-2xl font-bold">{value}</p>
+            </div>
+        </div>
+    )
+}
+
+function EventTypeOption({ type, label, desc, selected, onClick }) {
+    return (
+        <div
+            onClick={onClick}
+            className={cn(
+                "cursor-pointer border rounded-lg p-4 transition-all",
+                selected ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+            )}
+        >
+            <p className="font-bold">{label}</p>
+            <p className="text-xs text-muted-foreground">{desc}</p>
+        </div>
+    )
+}
+
+export default App
