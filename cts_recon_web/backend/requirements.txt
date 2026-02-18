@@ -8,3 +8,4 @@ dnspython
 flask
 pymongo
 python-dotenv
+flask-cors
