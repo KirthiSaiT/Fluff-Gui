@@ -44,9 +44,9 @@ function App() {
         }
     }
 
-    const viewResult = async (filename) => {
+    const viewResult = async (scanId) => {
         try {
-            const data = await getResultDetail(filename)
+            const data = await getResultDetail(scanId)
             setSelectedScan(data)
             setActiveTab('results')
         } catch (error) {
@@ -102,8 +102,8 @@ function App() {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <StatCard title="Total Scans" value={recentScans.length} icon={<Database className="text-blue-500" />} />
-                            <StatCard title="Active Scans" value="0" icon={<Activity className="text-green-500" />} />
-                            <StatCard title="Vulnerabilities" value="N/A" icon={<Shield className="text-red-500" />} />
+                            <StatCard title="Active Scans" value={recentScans.filter(s => s.status === 'running').length} icon={<Activity className="text-green-500" />} />
+                            <StatCard title="Completed" value={recentScans.filter(s => s.status === 'completed').length} icon={<Shield className="text-purple-500" />} />
                         </div>
 
                         <section>
@@ -112,17 +112,41 @@ function App() {
                                 <table className="w-full text-left text-sm">
                                     <thead className="bg-muted text-muted-foreground">
                                         <tr>
-                                            <th className="p-4 font-medium">Filename</th>
+                                            <th className="p-4 font-medium">Target</th>
+                                            <th className="p-4 font-medium">Type</th>
+                                            <th className="p-4 font-medium">Status</th>
+                                            <th className="p-4 font-medium">Date</th>
                                             <th className="p-4 font-medium">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-border">
-                                        {recentScans.map((file) => (
-                                            <tr key={file} className="hover:bg-muted/50 transition-colors">
-                                                <td className="p-4">{file}</td>
+                                        {recentScans.map((scan) => (
+                                            <tr key={scan.scan_id} className="hover:bg-muted/50 transition-colors">
+                                                <td className="p-4 font-medium">{scan.domain}</td>
+                                                <td className="p-4">
+                                                    <span className={cn(
+                                                        "px-2 py-1 rounded-full text-xs font-bold uppercase",
+                                                        scan.type === 'deep' ? "bg-purple-900/50 text-purple-400" : "bg-blue-900/50 text-blue-400"
+                                                    )}>
+                                                        {scan.type}
+                                                    </span>
+                                                </td>
+                                                <td className="p-4">
+                                                    <span className={cn(
+                                                        "px-2 py-1 rounded-full text-xs font-bold uppercase",
+                                                        scan.status === 'completed' ? "bg-green-900/50 text-green-400" :
+                                                            scan.status === 'running' ? "bg-yellow-900/50 text-yellow-400 animate-pulse" :
+                                                                "bg-gray-800 text-gray-400"
+                                                    )}>
+                                                        {scan.status}
+                                                    </span>
+                                                </td>
+                                                <td className="p-4 text-muted-foreground">
+                                                    {new Date(scan.created_at).toLocaleString()}
+                                                </td>
                                                 <td className="p-4">
                                                     <button
-                                                        onClick={() => viewResult(file)}
+                                                        onClick={() => viewResult(scan.scan_id)}
                                                         className="text-primary hover:underline font-medium"
                                                     >
                                                         View Report
@@ -132,7 +156,7 @@ function App() {
                                         ))}
                                         {recentScans.length === 0 && (
                                             <tr>
-                                                <td colSpan="2" className="p-8 text-center text-muted-foreground">No scans found.</td>
+                                                <td colSpan="5" className="p-8 text-center text-muted-foreground">No scans found.</td>
                                             </tr>
                                         )}
                                     </tbody>
@@ -205,9 +229,9 @@ function App() {
                 {activeTab === 'terminal' && currentScanId && (
                     <TerminalView
                         scanId={currentScanId}
-                        onComplete={(filename) => {
+                        onComplete={(scanId) => {
                             loadRecentScans()
-                            viewResult(filename)
+                            viewResult(scanId || currentScanId)
                         }}
                     />
                 )}

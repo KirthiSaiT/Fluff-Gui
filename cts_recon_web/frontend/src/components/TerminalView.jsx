@@ -44,10 +44,7 @@ export function TerminalView({ scanId, onComplete }) {
     }
 
     const handleComplete = () => {
-        // Generate filename based on convention or get from status if available
-        // For now, assuming convention: {domain}_{type}.json
-        const filename = `${metadata.domain}_${metadata.type}.json`
-        onComplete(filename)
+        onComplete(scanId)
     }
 
     return (

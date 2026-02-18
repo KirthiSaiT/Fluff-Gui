@@ -9,6 +9,12 @@ from datetime import datetime, timezone
 from collections import defaultdict
 import subprocess
 import re
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Add current directory to path so modules can be imported
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
@@ -22,11 +28,20 @@ OUTPUT_DIR = os.path.join(BASE_DIR, 'output')
 MODULES_DIR_DEEP = os.path.join(BASE_DIR, 'modules')
 MODULES_DIR_LITE = os.path.join(BASE_DIR, 'litemodules')
 
-# Ensure output directory exists
+# Ensure output directory exists (still used for temp storage if needed, or fallback)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# In-memory storage for scan status
-scan_status = {}
+# MongoDB Connection
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/cts_recon")
+try:
+    client = MongoClient(MONGO_URI)
+    # Default to 'cts_recon' if no db specified in URI
+    db = client.get_database("cts_recon") 
+    scans_collection = db.scans
+    print(f"Connected to MongoDB: {db.name}")
+except Exception as e:
+    print(f"Error connecting to MongoDB: {e}")
+    sys.exit(1)
 
 class ThreadAwareStdout:
     def __init__(self, original_stdout):
@@ -38,7 +53,6 @@ class ThreadAwareStdout:
 
     def write(self, message):
         # Avoid writing if interpreter is shutting down
-        # sys.is_finalizing() is available in Python 3.13+, but we use a heuristic for older versions
         if sys is None or not hasattr(sys, 'modules'):
             return
 
@@ -47,23 +61,28 @@ class ThreadAwareStdout:
             current_thread = threading.current_thread()
             if hasattr(current_thread, 'scan_id'):
                 scan_id = current_thread.scan_id
-                if scan_id in scan_status:
-                    # Strip ANSI escape codes
-                    clean_message = re.sub(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])', '', message)
+                
+                # Strip ANSI escape codes
+                clean_message = re.sub(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])', '', message)
+                
+                # Only log if there's actual content
+                if clean_message.strip():
+                    timestamp = datetime.now().strftime("%H:%M:%S")
+                    log_entry = f"[{timestamp}] {clean_message.strip()}"
                     
-                    # Only log if there's actual content (ignoring just newlines or empty timestamps)
-                    if clean_message.strip():
-                        timestamp = datetime.now().strftime("%H:%M:%S")
-                        scan_status[scan_id]['logs'].append(f"[{timestamp}] {clean_message.strip()}")
+                    # Update MongoDB directly
+                    scans_collection.update_one(
+                        {"scan_id": scan_id},
+                        {"$push": {"logs": log_entry}}
+                    )
         except Exception:
             pass # Ignore logging errors to prevent crashing
 
-        # 2. Write to original stdout (Risky during shutdown)
+        # 2. Write to original stdout
         try:
             self.original_stdout.write(message)
-            # self.original_stdout.flush() # Avoid explicit flush to reduce lock contention
         except Exception:
-            pass # Ignore write errors during shutdown
+            pass
 
     def flush(self):
         try:
@@ -74,29 +93,9 @@ class ThreadAwareStdout:
     def __getattr__(self, name):
         return getattr(self.original_stdout, name)
 
-# Replace stdout globally only if NOT already replaced (though class handles recursion now)
+# Replace stdout globally
 if not isinstance(sys.stdout, ThreadAwareStdout):
     sys.stdout = ThreadAwareStdout(sys.stdout)
-
-def save_scan_file(domain, scan_type, scan_data):
-    """Save scan data to a JSON file."""
-    safe_domain = domain.replace("/", "_").replace("\\", "_")
-    filename = f"{safe_domain}_{scan_type}.json"
-    filepath = os.path.join(OUTPUT_DIR, filename)
-
-    scan_data["target"] = domain
-    scan_data["scan_type"] = scan_type
-    scan_data["timestamp"] = datetime.now(timezone.utc).isoformat()
-    scan_data["status"] = "completed"
-
-    try:
-        with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(scan_data, f, indent=4)
-        print(f"Scan saved to {filepath}")
-        return filepath
-    except Exception as e:
-        print(f"Error saving scan file: {e}")
-        return None
 
 def run_module(module_name, domain, scan_data):
     """Run a single module."""
@@ -122,17 +121,14 @@ def run_scan_async(domain, scan_type, scan_id):
     modules_dir = MODULES_DIR_LITE if scan_type == 'lite' else MODULES_DIR_DEEP
     module_prefix = 'litemodules' if scan_type == 'lite' else 'modules'
 
-    # 1. Update status to running
-    scan_status[scan_id] = {
-        "status": "running", 
-        "domain": domain, 
-        "type": scan_type, 
-        "start_time": datetime.now().isoformat(),
-        "logs": []
-    }
-    
     # Set scan_id on current thread for logging
     threading.current_thread().scan_id = scan_id
+
+    # 1. Update status to running (already created in start_scan)
+    scans_collection.update_one(
+        {"scan_id": scan_id},
+        {"$set": {"status": "running", "start_time": datetime.now().isoformat()}}
+    )
 
     # 2. Add modules to path if not already
     if modules_dir not in sys.path:
@@ -145,14 +141,18 @@ def run_scan_async(domain, scan_type, scan_id):
                 module_name = f"{module_prefix}.{filename[:-3]}"
                 run_module(module_name, domain, scan_data)
     
-    # 4. Save results
-    filepath = save_scan_file(domain, scan_type, scan_data)
-    
-    # 5. Update status to completed
-    scan_status[scan_id]["status"] = "completed"
-    scan_status[scan_id]["end_time"] = datetime.now().isoformat()
-    if filepath:
-         scan_status[scan_id]["result_file"] = os.path.basename(filepath)
+    # 4. Update status to completed and save results
+    scans_collection.update_one(
+        {"scan_id": scan_id},
+        {
+            "$set": {
+                "status": "completed",
+                "end_time": datetime.now().isoformat(),
+                "results": scan_data
+            }
+        }
+    )
+    print(f"Scan {scan_id} completed and saved to MongoDB.")
 
 @app.route('/api/scan/start', methods=['POST'])
 def start_scan():
@@ -165,6 +165,17 @@ def start_scan():
 
     scan_id = f"{domain}_{scan_type}_{int(datetime.now().timestamp())}"
     
+    # Create initial document
+    scans_collection.insert_one({
+        "scan_id": scan_id,
+        "domain": domain,
+        "type": scan_type,
+        "status": "initializing",
+        "created_at": datetime.now().isoformat(),
+        "logs": [],
+        "results": {}
+    })
+
     # Start scan in background thread
     thread = threading.Thread(target=run_scan_async, args=(domain, scan_type, scan_id))
     thread.daemon = True # Ensure thread dies if server stops
@@ -174,36 +185,37 @@ def start_scan():
 
 @app.route('/api/scan/status/<scan_id>', methods=['GET'])
 def get_scan_status(scan_id):
-    status = scan_status.get(scan_id)
-    if not status:
+    scan = scans_collection.find_one({"scan_id": scan_id}, {"_id": 0})
+    if not scan:
         return jsonify({"error": "Scan ID not found"}), 404
-    return jsonify(status)
+    return jsonify(scan)
 
 @app.route('/api/results', methods=['GET'])
 def list_results():
-    files = []
-    if os.path.exists(OUTPUT_DIR):
-        for f in os.listdir(OUTPUT_DIR):
-            if f.endswith(".json"):
-                 files.append(f)
-    # Sort by modification time (newest first)
-    files.sort(key=lambda x: os.path.getmtime(os.path.join(OUTPUT_DIR, x)), reverse=True)
-    return jsonify(files)
+    # Return list of completed scans, sorted by latest
+    cursor = scans_collection.find({}, {"_id": 0, "scan_id": 1, "domain": 1, "type": 1, "status": 1, "created_at": 1, "end_time": 1}).sort("created_at", -1)
+    results = list(cursor)
+    return jsonify(results)
 
-@app.route('/api/results/<filename>', methods=['GET'])
-def get_result_detail(filename):
-    filepath = os.path.join(OUTPUT_DIR, filename)
-    if not os.path.exists(filepath):
-        return jsonify({"error": "File not found"}), 404
+@app.route('/api/results/<scan_id>', methods=['GET'])
+def get_result_detail(scan_id):
+    scan = scans_collection.find_one({"scan_id": scan_id}, {"_id": 0, "results": 1, "domain": 1, "type": 1, "start_time": 1, "end_time": 1})
+    if not scan:
+        return jsonify({"error": "Scan not found"}), 404
     
-    try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        return jsonify(data)
-    except Exception as e:
-        return jsonify({"error": f"Error reading file: {e}"}), 500
+    # Return structure aimed at matching previous file output, or just the whole object
+    return jsonify(scan)
 
-
+@app.route('/api/stats', methods=['GET'])
+def get_stats():
+    total_scans = scans_collection.count_documents({})
+    completed_scans = scans_collection.count_documents({"status": "completed"})
+    running_scans = scans_collection.count_documents({"status": "running"})
+    return jsonify({
+        "total_scans": total_scans,
+        "completed_scans": completed_scans,
+        "running_scans": running_scans
+    })
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

@@ -6,3 +6,5 @@ boto3
 google-search-results
 dnspython
 flask
+pymongo
+python-dotenv

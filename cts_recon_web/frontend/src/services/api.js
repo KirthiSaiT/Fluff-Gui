@@ -24,8 +24,8 @@ export const getResults = async () => {
     return response.data;
 }
 
-export const getResultDetail = async (filename) => {
-    const response = await api.get(`/results/${filename}`);
+export const getResultDetail = async (scanId) => {
+    const response = await api.get(`/results/${scanId}`);
     return response.data;
 }
 
