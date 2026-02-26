@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 import subprocess
 import requests
 import json
@@ -13,22 +13,22 @@ from colorama import Fore, Style, init
 init(autoreset=True)
 
 def banner(title):
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'─'*12}[ {title} ]{'─'*12}{Style.RESET_ALL}")
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'-'*12}[ {title} ]{'-'*12}{Style.RESET_ALL}")
 
 def info(msg):
     print(f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {msg}")
 
 def ok(msg):
-    print(f"{Fore.GREEN}[✔]{Style.RESET_ALL} {msg}")
+    print(f"{Fore.GREEN}[+]{Style.RESET_ALL} {msg}")
 
 def warn(msg):
     print(f"{Fore.YELLOW}[!]{Style.RESET_ALL} {msg}")
 
 def err(msg):
-    print(f"{Fore.RED}[✘]{Style.RESET_ALL} {msg}")
+    print(f"{Fore.RED}[-]{Style.RESET_ALL} {msg}")
 
 def finding(msg):
-    print(f"{Fore.LIGHTWHITE_EX}➜ {msg}{Style.RESET_ALL}")
+    print(f"{Fore.LIGHTWHITE_EX}> {msg}{Style.RESET_ALL}")
 
 def is_tool_missing(name):
     try:
@@ -318,3 +318,5 @@ if __name__ == "__main__":
         sys.exit(1)
     domain = sys.argv[1].strip()
     process(domain)
+
+

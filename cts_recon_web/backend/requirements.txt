@@ -8,3 +8,5 @@ dnspython
 flask
 pymongo
 python-dotenv
+python-whois
+wafw00f

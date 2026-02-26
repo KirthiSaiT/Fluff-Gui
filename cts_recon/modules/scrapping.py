@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 import subprocess
 import re
 import time
@@ -50,16 +50,16 @@ def banner(title):
     print(f"\n{Fore.MAGENTA}{'═'*15} {title} {'═'*15}{Style.RESET_ALL}")
 
 def log_info(msg):
-    print(f"{Fore.CYAN}[➜]{Style.RESET_ALL} {msg}")
+    print(f"{Fore.CYAN}[>]{Style.RESET_ALL} {msg}")
 
 def log_success(msg):
-    print(f"{Fore.GREEN}[✔]{Style.RESET_ALL} {msg}")
+    print(f"{Fore.GREEN}[+]{Style.RESET_ALL} {msg}")
 
 def log_warn(msg):
     print(f"{Fore.YELLOW}[!] {msg}{Style.RESET_ALL}")
 
 def log_error(msg):
-    print(f"{Fore.RED}[✘]{Style.RESET_ALL} {msg}")
+    print(f"{Fore.RED}[-]{Style.RESET_ALL} {msg}")
 
 # ----------------------------
 # GitHub Helpers
@@ -230,3 +230,4 @@ def process(domain: str):
     pretty_print(result)
     log_success(f"Results saved to {filename}")
     return result
+

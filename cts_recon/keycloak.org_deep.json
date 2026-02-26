@@ -1,0 +1,37 @@
+{
+    "bucket": {
+        "timestamp": "2026-02-26T10:33:01.793092",
+        "domain": "keycloak.org",
+        "dns": [
+            "fe80"
+        ],
+        "whois": [
+            {
+                "ip": "fe80",
+                "whois": []
+            }
+        ],
+        "AWS_S3": [
+            {
+                "url": "http://openreseurope.s3.amazonaws.com/manuscripts/16318/70b4c48b-7990-4a2f-b673-31fe213a19a5_15090_-_daniel_shangov_%282%29.pdf",
+                "bucket": "openreseurope",
+                "read": false,
+                "write": false
+            }
+        ],
+        "Google_Cloud": [
+            {
+                "url": "https://areq.net.storage.googleapis.com/lang/fr/Authentification_unique.html",
+                "bucket": "lang",
+                "read": false,
+                "write": false
+            }
+        ],
+        "Azure": [],
+        "DigitalOcean": [],
+        "Oracle_Cloud": []
+    },
+    "target": "keycloak.org",
+    "scan_type": "deep",
+    "timestamp": "2026-02-26T05:03:01.793092+00:00"
+}

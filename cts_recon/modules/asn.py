@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 asn.py - ASN & IP Range Discovery
 APIs used (with fallback chain):
@@ -24,13 +24,13 @@ IPAPI_BASE   = "http://ip-api.com/json"   # HTTP (no TLS issue)
 RDAP_BASE    = "https://rdap.arin.net/registry/ip"
 
 def banner(title):
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'─'*12}[ {title} ]{'─'*12}{Style.RESET_ALL}")
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'-'*12}[ {title} ]{'-'*12}{Style.RESET_ALL}")
 
-def ok(msg):      print(f"{Fore.GREEN}[✔]{Style.RESET_ALL} {msg}")
+def ok(msg):      print(f"{Fore.GREEN}[+]{Style.RESET_ALL} {msg}")
 def warn(msg):    print(f"{Fore.YELLOW}[!]{Style.RESET_ALL} {msg}")
-def err(msg):     print(f"{Fore.RED}[✘]{Style.RESET_ALL} {msg}")
-def info(msg):    print(f"{Fore.BLUE}[➜]{Style.RESET_ALL} {msg}")
-def finding(msg): print(f"{Fore.LIGHTWHITE_EX}➜ {msg}{Style.RESET_ALL}")
+def err(msg):     print(f"{Fore.RED}[-]{Style.RESET_ALL} {msg}")
+def info(msg):    print(f"{Fore.BLUE}[>]{Style.RESET_ALL} {msg}")
+def finding(msg): print(f"{Fore.LIGHTWHITE_EX}> {msg}{Style.RESET_ALL}")
 
 
 def resolve_domain(domain):
@@ -50,7 +50,7 @@ def resolve_domain(domain):
     return ips
 
 
-# ── API 1: ipinfo.io (primary, most reliable) ────────────────────────────────
+# -- API 1: ipinfo.io (primary, most reliable) --------------------------------
 
 def lookup_ipinfo(ip):
     """Primary: ipinfo.io — always up, no auth required for basic data."""
@@ -92,7 +92,7 @@ def lookup_ipinfo(ip):
     return None
 
 
-# ── API 2: ip-api.com (secondary, uses HTTP so avoids TLS issues) ─────────────
+# -- API 2: ip-api.com (secondary, uses HTTP so avoids TLS issues) -------------
 
 def lookup_ipapi(ip):
     """Secondary: ip-api.com — HTTP endpoint, rarely blocked."""
@@ -134,7 +134,7 @@ def lookup_ipapi(ip):
     return None
 
 
-# ── API 3: bgpview.io (tertiary, richest data but can be down) ───────────────
+# -- API 3: bgpview.io (tertiary, richest data but can be down) ---------------
 
 def lookup_bgpview(ip):
     """Tertiary: bgpview.io — richest prefix/ASN data but sometimes unreachable."""
@@ -207,9 +207,11 @@ def get_ip_info_with_fallback(ip):
     return {"ip": ip, "source": "none", "error": "All APIs unreachable"}
 
 
-def get_asn_details_bgpview(asn_number):
-    """Get full ASN prefix list from bgpview (best source for IP ranges)."""
-    result = {"asn": asn_number, "prefixes_v4": [], "prefixes_v6": [], "peers": [], "ixps": []}
+def get_asn_prefixes_with_fallback(asn_number):
+    """Get full ASN prefix list. Tries bgpview first, then HackerTarget as fallback."""
+    result = {"asn": asn_number, "prefixes_v4": [], "prefixes_v6": []}
+    
+    # 1. Try BGPView
     try:
         r = requests.get(f"{BGPVIEW_BASE}/asn/{asn_number}/prefixes", timeout=TIMEOUT)
         if r.status_code == 200:
@@ -220,13 +222,42 @@ def get_asn_details_bgpview(asn_number):
                     "name": p.get("name"),
                     "country_code": p.get("country_code")
                 })
-                finding(f"IPv4 Block: {p.get('prefix')} ({p.get('name', 'N/A')}) — {p.get('country_code')}")
+                finding(f"[bgpview] IPv4 Block: {p.get('prefix')} ({p.get('name', 'N/A')})")
             for p in data.get("ipv6_prefixes", []):
                 result["prefixes_v6"].append({"prefix": p.get("prefix"), "name": p.get("name")})
-            ok(f"IPv4: {len(result['prefixes_v4'])} | IPv6: {len(result['prefixes_v6'])} blocks")
+            
+            ok(f"IPv4: {len(result['prefixes_v4'])} | IPv6: {len(result['prefixes_v6'])} blocks found")
+            return result
     except Exception as e:
-        warn(f"bgpview prefix fetch skipped: {e}")
+        warn(f"bgpview prefix fetch failed: {e}")
+
+    # 2. Try HackerTarget Fallback
+    info("Trying HackerTarget fallback for ASN prefixes...")
+    try:
+        r = requests.get(f"https://api.hackertarget.com/aslookup/?q=AS{asn_number}", timeout=TIMEOUT)
+        if r.status_code == 200 and r.text:
+            lines = r.text.split("\n")
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+                # HackerTarget returns: 208.115.224.0/20
+                if "/" in line and ":" not in line: # Basic IPv4 distinction
+                    result["prefixes_v4"].append({
+                        "prefix": line,
+                        "name": f"HackerTarget Recon",
+                        "country_code": "Unknown"
+                    })
+                    finding(f"[hackertarget] IPv4 Block: {line}")
+            
+            ok(f"HackerTarget found {len(result['prefixes_v4'])} blocks")
+            return result
+    except Exception as e:
+        warn(f"HackerTarget ASN prefix fetch failed: {e}")
+
+    err(f"Could not fetch prefixes for AS{asn_number}")
     return result
+
 
 
 def process(domain):
@@ -266,7 +297,7 @@ def process(domain):
     banner("IP Block Discovery")
     for asn in seen_asns:
         info(f"Fetching prefix list for AS{asn}...")
-        asn_data = get_asn_details_bgpview(asn)
+        asn_data = get_asn_prefixes_with_fallback(asn)
         output["asn_summary"].append(asn_data)
         for block in asn_data.get("prefixes_v4", []):
             block["owned_by_asn"] = asn
@@ -289,3 +320,5 @@ if __name__ == "__main__":
     domain = sys.argv[1] if len(sys.argv) > 1 else input("Enter domain: ").strip()
     result = process(domain)
     print(json.dumps(result, indent=2, default=str))
+
+

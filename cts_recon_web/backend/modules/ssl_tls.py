@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 ssl_tls.py - SSL/TLS Certificate & Configuration Analysis
 Checks: cert expiry, TLS version, issuer, SANs, HSTS, weak ciphers
@@ -15,12 +15,12 @@ init(autoreset=True)
 TIMEOUT = 10
 
 def banner(title):
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'─'*12}[ {title} ]{'─'*12}{Style.RESET_ALL}")
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'-'*12}[ {title} ]{'-'*12}{Style.RESET_ALL}")
 
-def ok(msg):   print(f"{Fore.GREEN}[✔]{Style.RESET_ALL} {msg}")
+def ok(msg):   print(f"{Fore.GREEN}[+]{Style.RESET_ALL} {msg}")
 def warn(msg): print(f"{Fore.YELLOW}[!]{Style.RESET_ALL} {msg}")
-def err(msg):  print(f"{Fore.RED}[✘]{Style.RESET_ALL} {msg}")
-def info(msg): print(f"{Fore.BLUE}[➜]{Style.RESET_ALL} {msg}")
+def err(msg):  print(f"{Fore.RED}[-]{Style.RESET_ALL} {msg}")
+def info(msg): print(f"{Fore.BLUE}[>]{Style.RESET_ALL} {msg}")
 
 
 def get_certificate_info(domain):
@@ -198,3 +198,5 @@ if __name__ == "__main__":
     domain = sys.argv[1] if len(sys.argv) > 1 else input("Enter domain: ").strip()
     result = process(domain)
     print(json.dumps(result, indent=2, default=str))
+
+

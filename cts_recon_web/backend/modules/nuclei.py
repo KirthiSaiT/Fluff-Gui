@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 nuclei.py - Nuclei Vulnerability Scanner Integration
 Runs community templates: cves, misconfiguration, exposures, takeovers, default-logins
@@ -35,12 +35,12 @@ SEVERITY_COLOR = {
 }
 
 def banner(title):
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'─'*12}[ {title} ]{'─'*12}{Style.RESET_ALL}")
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'-'*12}[ {title} ]{'-'*12}{Style.RESET_ALL}")
 
-def ok(msg):      print(f"{Fore.GREEN}[✔]{Style.RESET_ALL} {msg}")
+def ok(msg):      print(f"{Fore.GREEN}[+]{Style.RESET_ALL} {msg}")
 def warn(msg):    print(f"{Fore.YELLOW}[!]{Style.RESET_ALL} {msg}")
-def err(msg):     print(f"{Fore.RED}[✘]{Style.RESET_ALL} {msg}")
-def info(msg):    print(f"{Fore.BLUE}[➜]{Style.RESET_ALL} {msg}")
+def err(msg):     print(f"{Fore.RED}[-]{Style.RESET_ALL} {msg}")
+def info(msg):    print(f"{Fore.BLUE}[>]{Style.RESET_ALL} {msg}")
 def finding(sev, msg): print(f"{SEVERITY_COLOR.get(sev, Fore.WHITE)}[{sev.upper()}]{Style.RESET_ALL} {msg}")
 
 
@@ -199,3 +199,5 @@ if __name__ == "__main__":
     result = process(domain)
     # Print summary only in CLI mode
     print(json.dumps({k: v for k, v in result.items() if k != "raw"}, indent=2, default=str))
+
+

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 import requests
 from bs4 import BeautifulSoup
 import socket
@@ -80,19 +80,19 @@ NOT_FOUND_PATTERNS = {
 # Pretty Output Helpers
 # -------------------------
 def banner(title: str):
-    print(f"\n{Fore.MAGENTA}{'─'*15} {title} {'─'*15}{Style.RESET_ALL}")
+    print(f"\n{Fore.MAGENTA}{'-'*15} {title} {'-'*15}{Style.RESET_ALL}")
 
 def log_info(msg: str):
-    print(f"{Fore.CYAN}[➜] {msg}{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}[>] {msg}{Style.RESET_ALL}")
 
 def log_success(msg: str):
-    print(f"{Fore.GREEN}[✔] {msg}{Style.RESET_ALL}")
+    print(f"{Fore.GREEN}[+] {msg}{Style.RESET_ALL}")
 
 def log_warn(msg: str):
     print(f"{Fore.YELLOW}[!] {msg}{Style.RESET_ALL}")
 
 def log_error(msg: str):
-    print(f"{Fore.RED}[✘] {msg}{Style.RESET_ALL}")
+    print(f"{Fore.RED}[-] {msg}{Style.RESET_ALL}")
 
 # -------------------------
 # Utility Functions
@@ -243,3 +243,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

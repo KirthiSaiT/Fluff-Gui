@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 photon.py - Web Crawler & OSINT Extractor
 Inspired by Photon (https://github.com/s0md3v/Photon)
@@ -74,13 +74,13 @@ INTERESTING_EXTENSIONS = {
 }
 
 def banner(title):
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'─'*12}[ {title} ]{'─'*12}{Style.RESET_ALL}")
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'-'*12}[ {title} ]{'-'*12}{Style.RESET_ALL}")
 
-def ok(msg):      print(f"{Fore.GREEN}[✔]{Style.RESET_ALL} {msg}")
+def ok(msg):      print(f"{Fore.GREEN}[+]{Style.RESET_ALL} {msg}")
 def warn(msg):    print(f"{Fore.YELLOW}[!]{Style.RESET_ALL} {msg}")
-def err(msg):     print(f"{Fore.RED}[✘]{Style.RESET_ALL} {msg}")
-def info(msg):    print(f"{Fore.BLUE}[➜]{Style.RESET_ALL} {msg}")
-def finding(msg): print(f"{Fore.LIGHTWHITE_EX}➜ {msg}{Style.RESET_ALL}")
+def err(msg):     print(f"{Fore.RED}[-]{Style.RESET_ALL} {msg}")
+def info(msg):    print(f"{Fore.BLUE}[>]{Style.RESET_ALL} {msg}")
+def finding(msg): print(f"{Fore.LIGHTWHITE_EX}> {msg}{Style.RESET_ALL}")
 def secret(msg):  print(f"{Fore.RED}[SECRET]{Style.RESET_ALL} {msg}")
 
 
@@ -412,3 +412,5 @@ if __name__ == "__main__":
     domain = sys.argv[1] if len(sys.argv) > 1 else input("Enter domain: ").strip()
     result = process(domain)
     print(json.dumps(result, indent=2, default=str))
+
+

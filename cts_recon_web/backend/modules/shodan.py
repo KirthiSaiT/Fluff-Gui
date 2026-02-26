@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 import shodan
 import subprocess
 from colorama import Fore, Style, init
@@ -82,18 +82,18 @@ def process(domain):
                 }
 
                 print(Fore.CYAN + f"[+] Found Host: {ip}")
-                print(Fore.WHITE + f"    ├─ Org: {entries[ip]['org']}")
+                print(Fore.WHITE + f"    ├- Org: {entries[ip]['org']}")
                 if entries[ip]['hostnames']:
-                    print(Fore.WHITE + f"    ├─ Hostnames: {', '.join(entries[ip]['hostnames'])}")
+                    print(Fore.WHITE + f"    ├- Hostnames: {', '.join(entries[ip]['hostnames'])}")
                 if entries[ip]['location']:
                     city = entries[ip]['location'].get('city', 'N/A')
                     country = entries[ip]['location'].get('country_name', 'N/A')
-                    print(Fore.WHITE + f"    └─ Location: {city}, {country}")
+                    print(Fore.WHITE + f"    └- Location: {city}, {country}")
 
             # Collect Shodan-discovered ports
             if shodan_port:
                 entries[ip]["ports"].append(str(shodan_port))
-                print(Fore.GREEN + f"    ├─ Shodan Port: {shodan_port}")
+                print(Fore.GREEN + f"    ├- Shodan Port: {shodan_port}")
 
             # Collect and enrich vulnerabilities with CVSS
             if "vulns" in result:
@@ -104,7 +104,7 @@ def process(domain):
                         "cvss": cvss
                     })
                     cvss_color = Fore.RED if cvss and cvss >= 7 else Fore.YELLOW if cvss else Fore.WHITE
-                    print(cvss_color + f"    └─ Vulnerability: {cve} (CVSS: {cvss if cvss else 'N/A'})")
+                    print(cvss_color + f"    └- Vulnerability: {cve} (CVSS: {cvss if cvss else 'N/A'})")
 
         ips = list(entries.keys())
         print(Fore.MAGENTA + f"\n[~] Running Nmap scans on {len(ips)} unique IPs in parallel...\n")
@@ -141,3 +141,4 @@ if __name__ == "__main__":
     print(Fore.CYAN + "\n========== JSON OUTPUT ==========\n")
     print(Fore.WHITE + json.dumps(output, indent=4))
     print(Fore.CYAN + "\n================================\n")
+
