@@ -1,0 +1,49 @@
+{
+    "bucket": {
+        "timestamp": "2026-02-26T01:25:13.164826",
+        "domain": "rmkcet.ac.in",
+        "dns": [
+            "208.115.225.178",
+            "2401"
+        ],
+        "whois": [
+            {
+                "ip": "208.115.225.178",
+                "whois": [
+                    "   Domain Name: FASTDNSNETWORK.COM",
+                    "   Registry Domain ID: 151980397_DOMAIN_COM-VRSN",
+                    "   Registrar WHOIS Server: whois.ownregistrar.com",
+                    "   Registrar URL: http://www.ownregistrar.com",
+                    "   Updated Date: 2023-08-30T12:10:22Z",
+                    "   Creation Date: 2005-04-21T10:27:12Z",
+                    "   Registry Expiry Date: 2030-04-21T10:27:12Z",
+                    "   Registrar: OwnRegistrar, Inc.",
+                    "   Registrar IANA ID: 1250",
+                    "   Registrar Abuse Contact Email: abuse@ownregistrar.com",
+                    "   Registrar Abuse Contact Phone: +1.2124016235",
+                    "   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+                    "   Name Server: NS11.NETANDHOST.COM",
+                    "   Name Server: NS12.NETANDHOST.COM",
+                    "   DNSSEC: unsigned",
+                    "   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/",
+                    ">>> Last update of whois database: 2026-02-25T19:55:06Z <<<",
+                    "",
+                    "For more information on Whois status codes, please visit https://icann.org/epp",
+                    ""
+                ]
+            },
+            {
+                "ip": "2401",
+                "whois": []
+            }
+        ],
+        "AWS_S3": [],
+        "Google_Cloud": [],
+        "Azure": [],
+        "DigitalOcean": [],
+        "Oracle_Cloud": []
+    },
+    "target": "rmkcet.ac.in",
+    "scan_type": "deep",
+    "timestamp": "2026-02-25T19:55:13.164826+00:00"
+}

@@ -12,6 +12,8 @@ import re
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
+import ssl
+import certifi
 
 # Load environment variables
 load_dotenv()
@@ -34,7 +36,18 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # MongoDB Connection
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/cts_recon")
 try:
-    client = MongoClient(MONGO_URI)
+    # Fix for Windows TLS handshake issues with MongoDB Atlas
+    ssl_context = ssl.create_default_context()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_NONE
+    ssl_context.minimum_version = ssl.TLSVersion.TLSv1_2
+    client = MongoClient(
+        MONGO_URI,
+        tls=True,
+        tlsAllowInvalidCertificates=True,
+        tlsAllowInvalidHostnames=True,
+        serverSelectionTimeoutMS=10000
+    )
     # Default to 'cts_recon' if no db specified in URI
     db = client.get_database("cts_recon") 
     scans_collection = db.scans
